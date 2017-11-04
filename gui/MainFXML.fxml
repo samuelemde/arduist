@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="window" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainFXMLController">
+<VBox fx:id="window" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainFXMLController">
     <children>
         <MenuBar>
             <menus>
@@ -31,99 +31,114 @@
         </MenuBar>
         <AnchorPane fx:id="windowAnchor" prefHeight="877.0" prefWidth="1800.0">
             <children>
-                  <AnchorPane prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
-                      <children>
-                          <TabPane fx:id="tabPane" layoutX="14.0" layoutY="26.0" prefHeight="871.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <tabs>
-                                  <Tab text="Original">
-                           <content>
-                              <Canvas fx:id="imageCanvas" height="800.0" width="800.0" />
-                           </content>
-                                  </Tab>
-                                  <Tab text="Preview">
-                                      <content>
-                                            <Canvas fx:id="drawCanvas" height="800.0" width="800.0" />
-                                      </content>
-                                  </Tab>
-                              </tabs>
-                          </TabPane>
-                      </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                      <children>
-                          <HBox prefHeight="33.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <children>
-                        <AnchorPane prefHeight="27.0" prefWidth="468.0">
-                           <children>
+                <AnchorPane prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <TabPane fx:id="tabPane" layoutX="14.0" layoutY="26.0" prefHeight="871.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <tabs>
+                                <Tab text="Original">
+                                    <content>
+                                        <Canvas fx:id="imageCanvas" height="800.0" width="800.0" />
+                                    </content>
+                                </Tab>
+                                <Tab text="Preview">
+                                    <content>
+                                        <Canvas fx:id="drawCanvas" height="800.0" width="800.0" />
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox prefHeight="33.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <AnchorPane prefHeight="27.0" prefWidth="468.0">
+                                    <children>
                                         <JFXTextField alignment="CENTER" editable="false" focusColor="#4d4d4d" layoutY="2.0" prefHeight="33.0" prefWidth="198.0" promptText="Choose Method" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="27.0" prefWidth="472.0">
-                           <children>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="27.0" prefWidth="472.0">
+                                    <children>
                                         <JFXComboBox fx:id="dropDownMenu" focusColor="#4d4d4d" layoutY="-2.0" onAction="#dropDownAction" prefHeight="33.0" prefWidth="202.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                              </children>
-                          </HBox>
-                          <VBox fx:id="paramsDots" layoutY="273.0" prefHeight="388.0" prefWidth="400.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="273.0">
-                              <children>
-                                  <HBox prefHeight="39.0" prefWidth="655.0">
-                                      <children>
-                              <AnchorPane prefHeight="39.0" prefWidth="122.0">
-                                 <children>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </HBox>
+                        <VBox fx:id="paramsLines" layoutY="273.0" prefHeight="388.0" prefWidth="400.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="273.0">
+                            <children>
+                                <HBox prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
                                                 <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                              <Label fx:id="grayLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                          <Slider fx:id="sliderGray" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderGrayLabelAction" onMouseDragged="#sliderGrayLabelAction" onMouseReleased="#sliderGrayAction" prefHeight="0.0" prefWidth="187.0" />
-                                      </children>
-                                  </HBox>
-                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
-                           <children>
-                              <AnchorPane prefHeight="39.0" prefWidth="122.0">
-                                 <children>
-                                    <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Black" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                              <Label fx:id="blackLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                              <Slider fx:id="sliderBlack" blockIncrement="0.1" max="0.5" onMouseClicked="#sliderBlackLabelAction" onMouseDragged="#sliderBlackLabelAction" onMouseReleased="#sliderBlackAction" prefHeight="0.0" prefWidth="187.0" />
-                           </children>
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="grayLabelLines" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderLinesGray" blockIncrement="1" max="10" onMouseClicked="#sliderGrayLinesLabelAction" onMouseDragged="#sliderGrayLinesLabelAction" onMouseReleased="#sliderGrayLinesAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="paramsDots" layoutY="273.0" prefHeight="388.0" prefWidth="400.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="273.0">
+                            <children>
+                                <HBox prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="grayLabelDots" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderDotsGray" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderGrayLabelAction" onMouseDragged="#sliderGrayLabelAction" onMouseReleased="#sliderGrayAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Black" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="blackLabelDots" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderDotsBlack" blockIncrement="0.1" max="0.5" onMouseClicked="#sliderBlackLabelAction" onMouseDragged="#sliderBlackLabelAction" onMouseReleased="#sliderBlackAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="90.0" prefWidth="400.0">
+                                    <children>
+                                        <AnchorPane prefHeight="90.0" prefWidth="117.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="distance" prefHeight="17.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <HBox prefHeight="29.0" prefWidth="363.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0">
+                            <children>
+                                <AnchorPane prefHeight="42.0" prefWidth="239.0">
+                                    <children>
+                                        <JFXButton fx:id="preview" onAction="#previewButtonAction" prefHeight="42.0" prefWidth="106.0" style="-fx-border-color: #0096c9; -fx-border-radius: 5em;" text="Preview" textAlignment="CENTER" textFill="#0096c9" AnchorPane.rightAnchor="0.0">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font></JFXButton>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="42.0" prefWidth="147.0">
+                                    <children>
+                                        <JFXButton fx:id="export" alignment="CENTER" contentDisplay="CENTER" onAction="#exportButtonAction" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #0096c9; -fx-background-radius: 5em;" text="Export" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="0.0">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font></JFXButton>
+                                    </children>
+                                </AnchorPane>
+                            </children>
                         </HBox>
-                        <HBox prefHeight="90.0" prefWidth="400.0">
-                           <children>
-                              <AnchorPane prefHeight="90.0" prefWidth="117.0">
-                                 <children>
-                                    <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                              <Label fx:id="distance" prefHeight="17.0" prefWidth="54.0" textFill="#4d4d4d" />
-                           </children>
-                        </HBox>
-                              </children>
-                          </VBox>
-                          <HBox prefHeight="29.0" prefWidth="363.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0">
-                              <children>
-                                  <AnchorPane prefHeight="42.0" prefWidth="239.0">
-                                      <children>
-                                          <JFXButton fx:id="preview" onAction="#previewButtonAction" prefHeight="42.0" prefWidth="106.0" style="-fx-border-color: #0096c9; -fx-border-radius: 5em;" text="Preview" textAlignment="CENTER" textFill="#0096c9" AnchorPane.rightAnchor="0.0">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font></JFXButton>
-                                      </children>
-                                  </AnchorPane>
-                                  <AnchorPane prefHeight="42.0" prefWidth="147.0">
-                                      <children>
-                                          <JFXButton fx:id="export" alignment="CENTER" contentDisplay="CENTER" onAction="#exportButtonAction" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #0096c9; -fx-background-radius: 5em;" text="Export" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="0.0">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font></JFXButton>
-                                      </children>
-                                  </AnchorPane>
-                              </children>
-                          </HBox>
-                  <Separator layoutX="-160.0" layoutY="33.0" orientation="VERTICAL" prefHeight="871.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                      </children>
-                  </AnchorPane>
+                        <Separator layoutX="-160.0" layoutY="33.0" orientation="VERTICAL" prefHeight="871.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                </AnchorPane>
             </children></AnchorPane>
     </children>
 </VBox>

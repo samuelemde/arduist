@@ -14,6 +14,7 @@ public class PathType {
 				PathHandlerDots.calcPath();
 				break;
 			case LINE:
+				PathHandlerLines.calcPath();
 				break;
 			case RANDOM:
 				break;

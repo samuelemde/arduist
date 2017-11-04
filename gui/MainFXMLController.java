@@ -12,13 +12,13 @@ import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import path.DrawBot;
 import path.ImageLoader;
 import path.PathHandlerDots;
+import path.PathHandlerLines;
 
-import javax.swing.*;
 import java.io.File;
 
 public class MainFXMLController {
@@ -29,7 +29,7 @@ public class MainFXMLController {
 	private VBox paramsDots;
 
 	@FXML
-	private VBox paramsLine;
+	private VBox paramsLines;
 
 	@FXML
 	private VBox paramsRandom;
@@ -47,16 +47,22 @@ public class MainFXMLController {
 	private TabPane tabPane;
 
 	@FXML
-	private Slider sliderGray;
+	private Slider sliderDotsGray;
 
 	@FXML
-	private Label grayLabel;
+	private Label grayLabelDots;
 
 	@FXML
-	private Slider sliderBlack;
+	private Slider sliderDotsBlack;
 
 	@FXML
-	private Label blackLabel;
+	private Label blackLabelDots;
+
+	@FXML
+	private Slider sliderLinesGray;
+
+	@FXML
+	private Label grayLabelLines;
 
 	@FXML
 	private Label distance;
@@ -74,10 +80,12 @@ public class MainFXMLController {
 
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
 		dropDownMenu.setItems(items);
-		sliderGray.setValue(PathHandlerDots.getSlider());
-		grayLabel.setText(String.format("%.2f",sliderGray.getValue()));
-		sliderBlack.setValue(PathHandlerDots.getBlack());
-		blackLabel.setText(String.format("%.2f",sliderBlack.getValue()));
+		sliderDotsGray.setValue(PathHandlerDots.getSlider());
+		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
+		sliderDotsBlack.setValue(PathHandlerDots.getBlack());
+		blackLabelDots.setText(String.format("%.2f", sliderDotsBlack.getValue()));
+		sliderDotsGray.setValue(PathHandlerLines.getNrOfShades());
+		grayLabelDots.setText(String.format("%.2f", sliderLinesGray.getValue()));
 	}
 
 	@FXML
@@ -95,13 +103,20 @@ public class MainFXMLController {
 		method = dropDownMenu.getValue().toString();
 		switch (method) {
 			case "Dots":
+
+				paramsLines.setVisible(false);
+//				paramsRandom.setVisible(false);
 				paramsDots.setVisible(true);
 				break;
 			case "Lines":
 				paramsDots.setVisible(false);
+//				paramsRandom.setVisible(false);
+				paramsLines.setVisible(true);
 				break;
 			case "Random":
 				paramsDots.setVisible(false);
+				paramsLines.setVisible(false);
+//				paramsRandom.setVisible(true);
 				break;
 		}
 	}
@@ -115,7 +130,9 @@ public class MainFXMLController {
 				distance.setText(String.valueOf(DrawBot.getDistance()));
 				break;
 			case "Lines":
-
+				new DrawBot(drawCanvas, PathHandlerLines.calcPath()).draw();
+				tabPane.getSelectionModel().select(1);
+				distance.setText(String.valueOf(DrawBot.getDistance()));
 				break;
 			case "Random":
 
@@ -142,23 +159,33 @@ public class MainFXMLController {
 	}
 
 	public void sliderGrayAction(MouseEvent event) {
-		PathHandlerDots.setSlider(sliderGray.getValue());
+		PathHandlerDots.setSlider(sliderDotsGray.getValue());
 
 	}
 
 	public void sliderGrayLabelAction(MouseEvent event) {
-		grayLabel.setText(String.format("%.2f",sliderGray.getValue()));
-		PathHandlerDots.setSlider(sliderGray.getValue());
+		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
+		PathHandlerDots.setSlider(sliderDotsGray.getValue());
 	}
 
 	public void sliderBlackAction(MouseEvent event) {
-		PathHandlerDots.setBlack(sliderBlack.getValue());
+		PathHandlerDots.setBlack(sliderDotsBlack.getValue());
 
 	}
 
 	public void sliderBlackLabelAction(MouseEvent event) {
-		blackLabel.setText(String.format("%.2f",sliderBlack.getValue()));
-		PathHandlerDots.setBlack(sliderBlack.getValue());
+		blackLabelDots.setText(String.format("%.2f", sliderDotsBlack.getValue()));
+		PathHandlerDots.setBlack(sliderDotsBlack.getValue());
+	}
+
+	public void sliderGrayLinesAction(MouseEvent event) {
+		PathHandlerLines.setNrOfShades((int)sliderLinesGray.getValue());
+
+	}
+
+	public void sliderGrayLinesLabelAction(MouseEvent event) {
+		grayLabelLines.setText(String.format("%.2f", sliderLinesGray.getValue()));
+		PathHandlerLines.setNrOfShades((int)sliderLinesGray.getValue());
 	}
 
 
