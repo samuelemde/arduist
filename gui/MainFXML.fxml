@@ -100,8 +100,8 @@
                                                 <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Black" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
                                             </children>
                                         </AnchorPane>
-                                        <Label fx:id="blackLabelDots" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderDotsBlack" blockIncrement="0.1" max="0.5" onMouseClicked="#sliderBlackLabelAction" onMouseDragged="#sliderBlackLabelAction" onMouseReleased="#sliderBlackAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Label fx:id="blackLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderBlack" blockIncrement="0.1" max="0.5" onMouseClicked="#sliderBlackLabelAction" onMouseDragged="#sliderBlackLabelAction" onMouseReleased="#sliderBlackAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox prefHeight="90.0" prefWidth="400.0">
@@ -112,6 +112,87 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="distance" prefHeight="17.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox fx:id="paramsRandom" layoutY="273.0" prefHeight="388.0" prefWidth="400.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="273.0">
+                            <children>
+                                <HBox prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="grayLabelRandom" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderRandomGray" blockIncrement="1" max="4" onMouseClicked="#sliderGrayRandomAction" onMouseDragged="#sliderGrayRandomLabelAction" onMouseReleased="#sliderGrayRandomAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gridsize" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="gridSizeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderGridSize" blockIncrement="1" max="30" onMouseClicked="#sliderGridSizeAction" onMouseDragged="#sliderGridSizeLabelAction" onMouseReleased="#sliderGridSizeAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lines per gridpoint" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="linesPerGridLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderLinesPerGrid" blockIncrement="1" max="4000" onMouseClicked="#sliderLinesPerGridAction" onMouseDragged="#sliderLinesPerGridLabelAction" onMouseReleased="#sliderLinesPerGridAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 1" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="radiusOneLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderRadiusOne" blockIncrement="1" max="5" onMouseClicked="#sliderRadiusOneAction" onMouseDragged="#sliderRadiusOneLabelAction" onMouseReleased="#sliderRadiusOneAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 2" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="radiusTwoLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderRadiusTwo" blockIncrement="1" max="20" onMouseClicked="#sliderRadiusTwoAction" onMouseDragged="#sliderRadiusTwoLabelAction" onMouseReleased="#sliderRadiusTwoAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 3" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="radiusThreeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderRadiusThree" blockIncrement="1" max="100" onMouseClicked="#sliderRadiusThreeAction" onMouseDragged="#sliderRadiusThreeLabelAction" onMouseReleased="#sliderRadiusThreeAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 4" wrappingWidth="96.218740940094" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="radiusFourLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderRadiusFour" blockIncrement="1" max="200" onMouseClicked="#sliderRadiusFourAction" onMouseDragged="#sliderRadiusFourLabelAction" onMouseReleased="#sliderRadiusFourAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                             </children>

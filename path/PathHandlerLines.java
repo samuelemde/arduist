@@ -1,5 +1,6 @@
 package path;
 
+import io.Writer;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
@@ -7,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PathHandlerLines {
-	private static boolean directionUp = true;
-	private static boolean directionRight = true;
 	private static List<Position> path;
-	private static int nrOfShades = 2;
+	private static int[][] pixelCategory;
+	private static int nrOfShades = 4;
 	private static Points points;
 	private static int width;
 	private static int height;
 	private static int x;
 	private static int y;
-	private static int[][] pixelCategory;
+	private static boolean directionUp = true;
+	private static boolean directionRight = true;
 
 	private static void analyzeImage() {
 		if (nrOfShades > 1) {
@@ -34,7 +35,7 @@ public class PathHandlerLines {
 					int shade = (int) ((color.getRed() * 255 + color.getGreen() * 255 + color.getBlue() * 255) / (3 * factor));
 					int rgb = (int) ((shade) * factor);
 
-					pixelCategory[x][y] = (int)Math.round((rgb / 255.)/ (1. / nrOfShades));
+					pixelCategory[x][y] = (int) Math.round((rgb / 255.) / (1. / nrOfShades));
 				}
 			}
 		}
@@ -60,7 +61,7 @@ public class PathHandlerLines {
 		return path;
 	}
 
-	public static Position nextPos(int x, int y) {
+	private static Position nextPos(int x, int y) {
 		int numberofTrianglesPerRow = (int) (ImageLoader.getImage().getWidth() / 2);
 		if (x < 2 || x > (numberofTrianglesPerRow * 2) - 3) {
 			directionRight = !directionRight;
@@ -96,11 +97,11 @@ public class PathHandlerLines {
 		return new Position(x, y);
 	}
 
-	static int getCategorie(Position p) {
+	private static int getCategorie(Position p) {
 		return pixelCategory[p.getX()][p.getY()];
 	}
 
-	static int getFieldCategorie(Position p) {
+	private static int getFieldCategorie(Position p) {
 		int category = 0;
 		for (int x = p.getX() - 1; x < p.getX() + 2; x++) {
 			for (int y = p.getY() - 1; y < p.getY() + 2; y++) {
@@ -116,5 +117,9 @@ public class PathHandlerLines {
 
 	public static int getNrOfShades() {
 		return nrOfShades;
+	}
+
+	public static void export(String filename) {
+		Writer.writeToFile(path, filename);
 	}
 }
