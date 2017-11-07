@@ -12,7 +12,7 @@ public class PathHandlerRandom {
 	private static List<Position> path;
 	private static int[][] pixelCategory;
 	private static int nrOfShades = 3;
-	private static int gridSize = 33;
+	private static int gridSize = 20;
 	private static int linesPerGridPoint = 3000;
 	private static int radiusShadeOne = 3;
 	private static int radiusShadeTwo = 10;
@@ -24,7 +24,6 @@ public class PathHandlerRandom {
 	private static int y;
 	private static int counter = 0;
 	private static boolean finished = false;
-
 	private static Points points;
 
 
@@ -105,9 +104,10 @@ public class PathHandlerRandom {
 				counter = counter + 100;
 				break;
 			case 3:
-				radius = radiusShadeFour;
-				counter = counter + 100;
-				break;
+//				radius = radiusShadeFour;
+//				counter = counter + 100;
+				return begin;
+				//break;
 		}
 
 		int i = 0;
@@ -137,17 +137,13 @@ public class PathHandlerRandom {
 			}
 		//	System.out.println("a");
 			newPosition = new Position(x, y);
-		} while (i<2 && getCategory(newPosition) != 0);
+		} while (i<5 && getCategory(newPosition) != 0);
 		//System.out.println("b");
 		return newPosition;
 	}
 
 	private static int getCategory(Position p) {
 		return pixelCategory[p.getX()][p.getY()];
-	}
-
-	public void setGridsize(int gridsize) {
-		this.gridSize = gridsize;
 	}
 
 	public static void setNrOfShades(int nrOfShades) {
