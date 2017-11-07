@@ -126,7 +126,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="grayLabelRandom" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderRandomGray" blockIncrement="1" max="4" onMouseClicked="#sliderGrayRandomAction" onMouseDragged="#sliderGrayRandomLabelAction" onMouseReleased="#sliderGrayRandomAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderRandomGray" blockIncrement="1" majorTickUnit="1.0" max="4" min="1.0" minorTickCount="0" onMouseClicked="#sliderGrayRandomAction" onMouseDragged="#sliderGrayRandomLabelAction" onMouseReleased="#sliderGrayRandomAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
@@ -137,7 +137,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="gridSizeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderGridSize" blockIncrement="1" max="30" onMouseClicked="#sliderGridSizeAction" onMouseDragged="#sliderGridSizeLabelAction" onMouseReleased="#sliderGridSizeAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderGridSize" blockIncrement="1" max="30" min="10.0" onMouseClicked="#sliderGridSizeAction" onMouseDragged="#sliderGridSizeLabelAction" onMouseReleased="#sliderGridSizeAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
@@ -148,7 +148,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="linesPerGridLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderLinesPerGrid" blockIncrement="1" max="4000" onMouseClicked="#sliderLinesPerGridAction" onMouseDragged="#sliderLinesPerGridLabelAction" onMouseReleased="#sliderLinesPerGridAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderLinesPerGrid" blockIncrement="1" max="4000" min="100.0" onMouseClicked="#sliderLinesPerGridAction" onMouseDragged="#sliderLinesPerGridLabelAction" onMouseReleased="#sliderLinesPerGridAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
@@ -159,7 +159,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="radiusOneLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderRadiusOne" blockIncrement="1" max="5" onMouseClicked="#sliderRadiusOneAction" onMouseDragged="#sliderRadiusOneLabelAction" onMouseReleased="#sliderRadiusOneAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderRadiusOne" blockIncrement="1" max="5" min="2.0" onMouseClicked="#sliderRadiusOneAction" onMouseDragged="#sliderRadiusOneLabelAction" onMouseReleased="#sliderRadiusOneAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
@@ -170,7 +170,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="radiusTwoLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderRadiusTwo" blockIncrement="1" max="20" onMouseClicked="#sliderRadiusTwoAction" onMouseDragged="#sliderRadiusTwoLabelAction" onMouseReleased="#sliderRadiusTwoAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderRadiusTwo" blockIncrement="1" max="20" min="10.0" onMouseClicked="#sliderRadiusTwoAction" onMouseDragged="#sliderRadiusTwoLabelAction" onMouseReleased="#sliderRadiusTwoAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
@@ -181,7 +181,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="radiusThreeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderRadiusThree" blockIncrement="1" max="100" onMouseClicked="#sliderRadiusThreeAction" onMouseDragged="#sliderRadiusThreeLabelAction" onMouseReleased="#sliderRadiusThreeAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderRadiusThree" blockIncrement="1" max="100" min="50.0" onMouseClicked="#sliderRadiusThreeAction" onMouseDragged="#sliderRadiusThreeLabelAction" onMouseReleased="#sliderRadiusThreeAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="655.0">
@@ -192,7 +192,7 @@
                                             </children>
                                         </AnchorPane>
                                         <Label fx:id="radiusFourLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                        <Slider fx:id="sliderRadiusFour" blockIncrement="1" max="200" onMouseClicked="#sliderRadiusFourAction" onMouseDragged="#sliderRadiusFourLabelAction" onMouseReleased="#sliderRadiusFourAction" prefHeight="0.0" prefWidth="187.0" />
+                                        <Slider fx:id="sliderRadiusFour" blockIncrement="1" max="200" min="100.0" onMouseClicked="#sliderRadiusFourAction" onMouseDragged="#sliderRadiusFourLabelAction" onMouseReleased="#sliderRadiusFourAction" prefHeight="0.0" prefWidth="187.0" />
                                     </children>
                                 </HBox>
                             </children>
