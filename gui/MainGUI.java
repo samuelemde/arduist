@@ -21,6 +21,7 @@ public class MainGUI extends Application {
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
+		stage.setFullScreen(true);
 	}
 
 	public static Stage getStage() {

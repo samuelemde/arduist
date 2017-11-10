@@ -28,6 +28,7 @@ public class PathHandlerDots {
 			width = (int) image.getWidth();
 			height = (int) image.getHeight();
 			points = new Points(width, height);
+			points.setSize(0);
 
 			double factor = 1. / nrOfShades;
 
@@ -141,6 +142,10 @@ public class PathHandlerDots {
 
 	public static void setBlack(double black) {
 		PathHandlerDots.black = black;
+	}
+
+	public static Points getPoints() {
+		return points;
 	}
 }
 

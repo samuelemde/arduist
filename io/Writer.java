@@ -3,7 +3,6 @@ package io;
 import path.ImageLoader;
 import path.Points;
 import path.Position;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

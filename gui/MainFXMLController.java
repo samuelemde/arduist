@@ -203,7 +203,7 @@ public class MainFXMLController {
 
 	}
 	public void sliderBlackLabelAction(MouseEvent event) {
-		blackLabel.setText(String.format("%.0f", sliderBlack.getValue()));
+		blackLabel.setText(String.format("%.2f", sliderBlack.getValue()));
 		PathHandlerDots.setBlack(sliderBlack.getValue());
 	}
 
