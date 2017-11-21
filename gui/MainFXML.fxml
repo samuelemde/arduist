@@ -29,7 +29,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <AnchorPane fx:id="windowAnchor" prefHeight="877.0" prefWidth="1800.0">
+        <AnchorPane fx:id="windowAnchor" prefHeight="877.0" prefWidth="1200.0">
             <children>
                 <AnchorPane prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
                     <children>

@@ -26,8 +26,6 @@ public class Writer {
 			fw = new FileWriter(filename);
 			bw = new BufferedWriter(fw);
 			bw.write(Points.size()+"\n");
-			bw.write(ImageLoader.getImage().getWidth()+"\n");
-			bw.write(ImageLoader.getImage().getHeight()+"\n");
 			bw.write(content);
 
 			System.out.println("Done");
