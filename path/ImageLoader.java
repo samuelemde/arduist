@@ -10,18 +10,20 @@ import java.io.File;
  */
 public class ImageLoader {
 	private static Image image;
+	private static int width = 800;
+	private static int height = 800;
 	private static double vBorder;
 	private static double hBorder;
 
 
 	public static void load(File file, Canvas canvas) {
 		try {
-			image = new Image(file.toURI().toString(),800,800,true,true);
+			image = new Image(file.toURI().toString(),width,height,true,true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		hBorder = (800 - image.getWidth())/2;
-		vBorder = (800 - image.getHeight())/2;
+		hBorder = (width - image.getWidth())/2;
+		vBorder = (height - image.getHeight())/2;
 		canvas.getGraphicsContext2D().clearRect(0,0, canvas.getWidth(), canvas.getHeight());
 		canvas.getGraphicsContext2D().drawImage(image, hBorder, vBorder);
 	}

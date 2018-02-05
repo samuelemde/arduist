@@ -39,7 +39,12 @@ public class PathHandlerDots {
 					double rgb = (color.getRed() + color.getGreen() + color.getBlue())/3.;
 					double shade = rgb / factor;
 
-					if (Math.random() < (1 - (rgb)) - (slider * shade)-black) {
+					if (rgb < 0.5) {
+						if (Math.random() < (1.2 - (rgb)) - (slider * shade)-black) {
+							points.add(x, y);
+						}
+					}
+					else if (Math.random() < (1 - (rgb)) - (slider * shade)-black) {
 						points.add(x, y);
 					}
 				}

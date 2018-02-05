@@ -14,7 +14,7 @@ public class MainGUI extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		this.stage = stage;
+		MainGUI.stage = stage;
 		Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
 		Scene scene = new Scene(root);
 		stage.setTitle("Arduist");
@@ -26,8 +26,4 @@ public class MainGUI extends Application {
 	public static Stage getStage() {
 		return stage;
 	}
-
-//	public static void main(String[] args) {
-//		launch(args);
-//	}
 }
