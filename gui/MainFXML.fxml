@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="window" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainFXMLController">
+<VBox fx:id="window" prefHeight="900.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainFXMLController">
     <children>
         <MenuBar>
             <menus>
@@ -29,27 +29,27 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <AnchorPane fx:id="windowAnchor" prefHeight="877.0" prefWidth="1200.0">
+        <AnchorPane fx:id="windowAnchor" prefHeight="871.0" prefWidth="1104.0">
             <children>
-                <AnchorPane prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane prefHeight="871.0" prefWidth="567.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <TabPane fx:id="tabPane" layoutX="14.0" layoutY="26.0" prefHeight="871.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TabPane fx:id="tabPane" layoutX="14.0" layoutY="26.0" prefHeight="871.0" prefWidth="565.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <tabs>
                                 <Tab text="Original">
                                     <content>
-                                        <Canvas fx:id="imageCanvas" height="800.0" width="800.0" />
+                                        <Canvas fx:id="imageCanvas" height="800.0" width="565.0" />
                                     </content>
                                 </Tab>
                                 <Tab text="Preview">
                                     <content>
-                                        <Canvas fx:id="drawCanvas" height="800.0" width="800.0" />
+                                        <Canvas fx:id="drawCanvas" height="800.0" width="565.0" />
                                     </content>
                                 </Tab>
                             </tabs>
                         </TabPane>
                     </children>
                 </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane layoutX="565.0" minHeight="0.0" minWidth="0.0" prefHeight="871.0" prefWidth="537.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <HBox prefHeight="33.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
@@ -197,11 +197,11 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <HBox prefHeight="29.0" prefWidth="363.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0">
+                        <HBox prefHeight="42.0" prefWidth="537.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                             <children>
-                                <AnchorPane prefHeight="42.0" prefWidth="239.0">
+                                <AnchorPane prefHeight="42.0" prefWidth="263.0">
                                     <children>
-                                        <JFXButton fx:id="preview" onAction="#previewButtonAction" prefHeight="42.0" prefWidth="106.0" style="-fx-border-color: #0096c9; -fx-border-radius: 5em;" text="Preview" textAlignment="CENTER" textFill="#0096c9" AnchorPane.rightAnchor="0.0">
+                                        <JFXButton fx:id="preview" onAction="#previewButtonAction" prefHeight="42.0" prefWidth="113.0" style="-fx-border-color: #0096c9; -fx-border-radius: 5em;" text="Preview" textAlignment="CENTER" textFill="#0096c9" AnchorPane.rightAnchor="89.0">
                                             <font>
                                                 <Font size="20.0" />
                                             </font></JFXButton>
@@ -209,7 +209,7 @@
                                 </AnchorPane>
                                 <AnchorPane prefHeight="42.0" prefWidth="147.0">
                                     <children>
-                                        <JFXButton fx:id="export" alignment="CENTER" contentDisplay="CENTER" onAction="#exportButtonAction" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #0096c9; -fx-background-radius: 5em;" text="Export" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="0.0">
+                                        <JFXButton fx:id="export" alignment="CENTER" contentDisplay="CENTER" layoutX="-44.0" onAction="#exportButtonAction" prefHeight="40.0" prefWidth="116.0" style="-fx-background-color: #0096c9; -fx-background-radius: 5em;" text="Export" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="-44.0" AnchorPane.rightAnchor="68.0">
                                             <font>
                                                 <Font size="20.0" />
                                             </font></JFXButton>

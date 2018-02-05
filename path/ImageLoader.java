@@ -10,7 +10,7 @@ import java.io.File;
  */
 public class ImageLoader {
 	private static Image image;
-	private static int width = 800;
+	private static int width = 565;
 	private static int height = 800;
 	private static double vBorder;
 	private static double hBorder;
@@ -24,6 +24,8 @@ public class ImageLoader {
 		}
 		hBorder = (width - image.getWidth())/2;
 		vBorder = (height - image.getHeight())/2;
+		System.out.println(hBorder);
+		System.out.println(vBorder);
 		canvas.getGraphicsContext2D().clearRect(0,0, canvas.getWidth(), canvas.getHeight());
 		canvas.getGraphicsContext2D().drawImage(image, hBorder, vBorder);
 	}

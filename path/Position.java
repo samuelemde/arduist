@@ -11,9 +11,9 @@ public class Position {
 
 	public String write() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.getX());
+		sb.append(this.getX()+Math.round(ImageLoader.getHBorder()));
 		sb.append("/");
-		sb.append(this.getY());
+		sb.append(this.getY()+Math.round(ImageLoader.getVBorder()));
 		return sb.toString();
 	}
 

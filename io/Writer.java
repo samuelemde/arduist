@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * This class creates a file and writes the path to a txt file.
- * The first line represents the total amount of points, the second and third are the width and height of
- * the analyzed image. These infos are then read by the io.Reader class and used by the path.DrawBot class to draw the image.
+ * This class creates a file and writes all points separated by a new line character to a txt file.
+ * These points are then read by the io.Reader class and used by the path.DrawBot class to draw the image.
+ * The first line represents the total amount of points.
  */
 public class Writer {
 
@@ -27,8 +27,6 @@ public class Writer {
 			bw = new BufferedWriter(fw);
 			bw.write(Points.size()+"\n");
 			bw.write(content);
-
-			System.out.println("Done");
 
 		} catch (IOException e) {
 			e.printStackTrace();
