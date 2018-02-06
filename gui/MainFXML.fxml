@@ -49,9 +49,31 @@
                         </TabPane>
                     </children>
                 </AnchorPane>
-                <AnchorPane layoutX="565.0" minHeight="0.0" minWidth="0.0" prefHeight="871.0" prefWidth="537.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane layoutX="484.0" minHeight="0.0" minWidth="0.0" prefHeight="871.0" prefWidth="476.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <HBox prefHeight="33.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox layoutX="1.0" layoutY="110.0" prefHeight="39.0" prefWidth="395.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+                     <children>
+                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                           <children>
+                              <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opacity" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="labelBrushOpacity" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                        <Slider fx:id="sliderBrushOpacity" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderBrushOpacityLabelAction" onMouseDragged="#sliderBrushOpacityLabelAction" onMouseReleased="#sliderBrushOpacityAction" prefHeight="0.0" prefWidth="187.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="39.0" prefWidth="655.0" AnchorPane.topAnchor="80.0">
+                     <children>
+                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                           <children>
+                              <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brush size" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="labelBrushSize" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                        <Slider fx:id="sliderBrushSize" blockIncrement="1" onMouseClicked="#sliderBrushSizeLabelAction" onMouseDragged="#sliderBrushSizeLabelAction" onMouseReleased="#sliderBrushSizeAction" prefHeight="0.0" prefWidth="187.0" />
+                     </children>
+                  </HBox>
+                        <HBox prefHeight="33.0" prefWidth="395.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <AnchorPane prefHeight="27.0" prefWidth="468.0">
                                     <children>

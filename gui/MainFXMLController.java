@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import path.*;
 
+import javax.swing.*;
 import java.io.File;
 
 public class MainFXMLController {
@@ -36,6 +37,15 @@ public class MainFXMLController {
 	private Canvas drawCanvas;
 	@FXML
 	private TabPane tabPane;
+
+	@FXML
+	private Slider sliderBrushSize;
+	@FXML
+	private Label labelBrushSize;
+	@FXML
+	private Slider sliderBrushOpacity;
+	@FXML
+	private Label labelBrushOpacity;
 
 
 	@FXML
@@ -91,6 +101,11 @@ public class MainFXMLController {
 	@FXML
 	private AnchorPane windowAnchor;
 
+	@FXML
+	private JComponent comp;
+
+	private int x, y;
+
 
 	@FXML
 	public void initialize() {
@@ -117,6 +132,8 @@ public class MainFXMLController {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
+//		DrawArea drawArea = new DrawArea(imageCanvas);
+
 	}
 
 	@FXML
@@ -126,6 +143,7 @@ public class MainFXMLController {
 		if (file != null) {
 			ImageLoader.load(file, imageCanvas);
 			tabPane.getSelectionModel().select(0);
+			addDrawArea(imageCanvas);
 		}
 	}
 
@@ -189,6 +207,25 @@ public class MainFXMLController {
 			}
 		}
 	}
+
+	public void sliderBrushSizeAction(MouseEvent event) {
+		DrawArea.setBrushSize((int)sliderBrushSize.getValue());
+	}
+
+	public void sliderBrushSizeLabelAction(MouseEvent event) {
+		labelBrushSize.setText(String.format("%d", (int)sliderBrushSize.getValue()));
+		DrawArea.setBrushSize((int)sliderBrushSize.getValue());
+	}
+
+	public void sliderBrushOpacityAction(MouseEvent event) {
+		DrawArea.setOpacity((int)sliderBrushOpacity.getValue());
+	}
+
+	public void sliderBrushOpacityLabelAction(MouseEvent event) {
+		labelBrushOpacity.setText(String.format("%.2f", sliderBrushOpacity.getValue()));
+		DrawArea.setOpacity((int)sliderBrushOpacity.getValue());
+	}
+
 
 	public void sliderGrayAction(MouseEvent event) {
 		PathHandlerDots.setSlider(sliderDotsGray.getValue());
@@ -272,5 +309,8 @@ public class MainFXMLController {
 		PathHandlerRandom.setRadiusShadeFour((int) sliderRadiusFour.getValue());
 	}
 
+	public void addDrawArea(Canvas canvas) {
+		DrawArea drawArea = new DrawArea(canvas);
+	}
 
 }
