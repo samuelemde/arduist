@@ -132,7 +132,6 @@ public class MainFXMLController {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
-//		DrawArea drawArea = new DrawArea(imageCanvas);
 
 	}
 
