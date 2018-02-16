@@ -63,8 +63,11 @@ public class PathHandlerDots {
 		int y = 0;
 		findFirst:
 		while (y < height) {
+			x = 0;
 			while (x < width) {
-				if (points.get(x, y)) break findFirst;
+				if (points.get(x, y)){
+					break findFirst;
+				}
 				x++;
 			}
 			y++;
