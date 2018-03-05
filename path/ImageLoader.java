@@ -15,8 +15,8 @@ import java.io.File;
 public class ImageLoader {
 	private static Image image;
 	private static WritableImage image2;
-	private static int width = 565;
-	private static int height = 800;
+	private static int width = 500;
+	private static int height = 500;
 	private static double vBorder;
 	private static double hBorder;
 	private static PixelReader reader;
