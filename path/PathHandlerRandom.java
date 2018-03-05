@@ -26,9 +26,6 @@ public class PathHandlerRandom {
 	private static boolean finished = false;
 	private static Points points;
 
-
-
-
 	private static void analyzeImage() {
 		if (nrOfShades > 1) {
 			width = (int) ImageLoader.getImage().getWidth();
@@ -137,7 +134,7 @@ public class PathHandlerRandom {
 			}
 		//	System.out.println("a");
 			newPosition = new Position(x, y);
-		} while (i<5 && getCategory(newPosition) != 0);
+		} while (i<2 && getCategory(newPosition) != 0);
 		//System.out.println("b");
 		return newPosition;
 	}

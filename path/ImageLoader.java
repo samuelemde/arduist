@@ -25,6 +25,12 @@ public class ImageLoader {
 		canvas.getGraphicsContext2D().clearRect(0,0, canvas.getWidth(), canvas.getHeight());
 		canvas.getGraphicsContext2D().drawImage(image, hBorder, vBorder);
 	}
+		public static void load(Image image, Canvas canvas) {
+				hBorder = (800 - image.getWidth())/2;
+				vBorder = (800 - image.getHeight())/2;
+				canvas.getGraphicsContext2D().clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+				canvas.getGraphicsContext2D().drawImage(image, hBorder, vBorder);
+		}
 
 	public static void setImg(Image image) {
 		ImageLoader.image = image;

@@ -197,6 +197,21 @@
                                 </HBox>
                             </children>
                         </VBox>
+                        <VBox fx:id="paramsContour" layoutY="273.0" prefHeight="388.0" prefWidth="400.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="273.0">
+                            <children>
+                                <HBox prefHeight="39.0" prefWidth="655.0">
+                                    <children>
+                                        <AnchorPane prefHeight="39.0" prefWidth="122.0">
+                                            <children>
+                                                <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Label fx:id="grayLabelContour" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                        <Slider fx:id="sliderContourGray" blockIncrement="1" max="255" onMouseClicked="#sliderGrayContourLabelAction" onMouseDragged="#sliderGrayContourLabelAction" onMouseReleased="#sliderGrayContourAction" prefHeight="0.0" prefWidth="187.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
                         <HBox prefHeight="29.0" prefWidth="363.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0">
                             <children>
                                 <AnchorPane prefHeight="42.0" prefWidth="239.0">

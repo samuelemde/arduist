@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import path.*;
 
+import java.awt.*;
 import java.io.File;
 
 public class MainFXMLController {
@@ -27,6 +28,8 @@ public class MainFXMLController {
 	private VBox paramsLines;
 	@FXML
 	private VBox paramsRandom;
+	@FXML
+	private VBox paramsContour;
 
 	@FXML
 	private Canvas imageCanvas;
@@ -83,6 +86,11 @@ public class MainFXMLController {
 	@FXML
 	private Label radiusFourLabel;
 
+	@FXML
+	private Slider sliderContourGray;
+	@FXML
+	private Label grayLabelContour;
+
 
 	@FXML
 	private Label distance;
@@ -95,7 +103,7 @@ public class MainFXMLController {
 	@FXML
 	public void initialize() {
 
-		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
+		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random","Contour");
 		dropDownMenu.setItems(items);
 		sliderDotsGray.setValue(PathHandlerDots.getSlider());
 		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
@@ -117,9 +125,17 @@ public class MainFXMLController {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
+		sliderContourGray.setValue(PathHandlerContour.getPrecision());
+		grayLabelContour.setText(String.format("%.0f", sliderContourGray.getValue()));
+
+		sendCanvas();
 	}
 
-	@FXML
+		private void sendCanvas() {
+			PathHandlerContour.setCanvas(imageCanvas);
+		}
+
+		@FXML
 	public void LoadImage(ActionEvent event) {
 		FileChooser fc = new FileChooser();
 		File file = fc.showOpenDialog(MainGUI.getStage());
@@ -137,16 +153,25 @@ public class MainFXMLController {
 				paramsLines.setVisible(false);
 				paramsRandom.setVisible(false);
 				paramsDots.setVisible(true);
+				paramsContour.setVisible(false);
 				break;
 			case "Lines":
 				paramsDots.setVisible(false);
 				paramsRandom.setVisible(false);
 				paramsLines.setVisible(true);
+				paramsContour.setVisible(false);
 				break;
 			case "Random":
 				paramsDots.setVisible(false);
 				paramsLines.setVisible(false);
 				paramsRandom.setVisible(true);
+				paramsContour.setVisible(false);
+				break;
+			case "Contour":
+				paramsDots.setVisible(false);
+				paramsLines.setVisible(false);
+				paramsRandom.setVisible(false);
+				paramsContour.setVisible(true);
 				break;
 		}
 	}
@@ -169,6 +194,11 @@ public class MainFXMLController {
 				tabPane.getSelectionModel().select(1);
 				distance.setText(String.valueOf(DrawBot.getDistance()));
 				break;
+			case "Contour":
+				new DrawBot(drawCanvas, PathHandlerContour.calcPath()).draw();
+				tabPane.getSelectionModel().select(1);
+				distance.setText(String.valueOf(DrawBot.getDistance()));
+				break;
 		}
 	}
 
@@ -185,6 +215,9 @@ public class MainFXMLController {
 					break;
 				case "Random":
 					PathHandlerRandom.export(file.getAbsolutePath() + ".txt");
+					break;
+				case "Contour":
+					PathHandlerContour.export(file.getAbsolutePath() + ".txt");
 					break;
 			}
 		}
@@ -272,5 +305,13 @@ public class MainFXMLController {
 		PathHandlerRandom.setRadiusShadeFour((int) sliderRadiusFour.getValue());
 	}
 
+	public void sliderGrayContourAction(MouseEvent event) {
+		PathHandlerContour.setPrecision((int) sliderContourGray.getValue());
+
+	}
+	public void sliderGrayContourLabelAction(MouseEvent event) {
+		grayLabelContour.setText(String.format("%.0f", sliderContourGray.getValue()));
+		PathHandlerContour.setPrecision((int) sliderContourGray.getValue());
+	}
 
 }
