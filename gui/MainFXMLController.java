@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
@@ -104,11 +105,16 @@ public class MainFXMLController {
 	private VBox window;
 	@FXML
 	private AnchorPane windowAnchor;
+	@FXML
+	private VBox settingsVbox;
+	@FXML
+	private MenuBar menuBar;
 
 	@FXML
 	private JComponent comp;
 
 	private int x, y;
+	private boolean initialize = true;
 
 
 	@FXML
@@ -139,6 +145,38 @@ public class MainFXMLController {
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
 
+		windowAnchor.widthProperty().addListener((observable, oldValue, newValue) -> changeWindowAnchorWidth());
+		windowAnchor.heightProperty().addListener((observable, oldValue, newValue) -> changeWindowAnchorHeight());
+	}
+
+	private void changeWindowAnchorWidth(){
+		if(!initialize) {
+			tabPane.setPrefWidth(windowAnchor.getWidth() - settingsVbox.getWidth());
+			scaleCanvases();
+		} else {
+			initialize = false;
+		}
+	}
+
+	private void changeWindowAnchorHeight(){
+		if(!initialize) {
+			tabPane.setPrefHeight(windowAnchor.getHeight() - menuBar.getHeight());
+			scaleCanvases();
+		} else {
+			initialize = false;
+		}
+	}
+
+	private void scaleCanvases(){
+		double factor = tabPane.getWidth()/imageCanvas.getWidth() < tabPane.getHeight()/imageCanvas.getHeight() ? tabPane.getWidth()/imageCanvas.getWidth() : tabPane.getHeight()/imageCanvas.getHeight();
+		imageCanvas.setScaleX(factor);
+		imageCanvas.setScaleY(factor);
+		imageCanvas.setTranslateX((imageCanvas.getWidth()*factor-imageCanvas.getWidth())/2);
+		imageCanvas.setTranslateY((imageCanvas.getHeight()*factor-imageCanvas.getHeight())/2);
+		drawCanvas.setScaleX(factor);
+		drawCanvas.setScaleY(factor);
+		drawCanvas.setTranslateX((drawCanvas.getWidth()*factor-drawCanvas.getWidth())/2);
+		drawCanvas.setTranslateY((drawCanvas.getHeight()*factor-drawCanvas.getHeight())/2);
 	}
 
 	@FXML
@@ -150,6 +188,7 @@ public class MainFXMLController {
 			tabPane.getSelectionModel().select(0);
 			addDrawArea(imageCanvas);
 		}
+		scaleCanvases();
 	}
 
 	public void reloadImage() {
@@ -210,6 +249,7 @@ public class MainFXMLController {
 		drawCanvas.setWidth(width);
 		drawCanvas.setHeight(height);
 		reloadImage();
+		scaleCanvases();
 	}
 
 	@FXML

@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import sun.applet.Main;
 
 import javax.swing.*;
 
@@ -19,9 +21,12 @@ public class MainGUI extends Application {
 		Scene scene = new Scene(root);
 		stage.setTitle("Arduist");
 		stage.setScene(scene);
-		stage.setResizable(false);
+		stage.setResizable(true);
 		stage.show();
+		MainGUI.stage.setMinHeight(stage.getHeight());
+		MainGUI.stage.setMinWidth(stage.getWidth());
 	}
+
 
 	public static Stage getStage() {
 		return stage;
