@@ -2,6 +2,8 @@ package path;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
 import java.util.List;
 
 /**
@@ -27,7 +29,8 @@ public class DrawBot {
 
 	public void draw() {
 		distance = 0;
-		gc.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+		gc.setFill(Color.WHITE);
+		gc.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 		System.out.println(size);
 		for (int i = 0; i < size-1; i++) {
 			drawLine(path.get(i), path.get(i+1));

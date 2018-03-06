@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 
@@ -15,8 +16,8 @@ import java.io.File;
 public class ImageLoader {
 	private static Image image;
 	private static WritableImage image2;
-	private static int width = 500;
-	private static int height = 500;
+	private static int width;
+	private static int height;
 	private static double vBorder;
 	private static double hBorder;
 	private static PixelReader reader;
@@ -24,6 +25,8 @@ public class ImageLoader {
 
 
 	public static void load(File file, Canvas canvas) {
+		width = (int)canvas.getWidth();
+		height = (int)canvas.getHeight();
 		try {
 			image = new Image(file.toURI().toString(),width,height,true,true);
 		} catch (Exception e) {
@@ -42,12 +45,14 @@ public class ImageLoader {
 		vBorder = (height - image.getHeight())/2;
 		System.out.println(hBorder);
 		System.out.println(vBorder);
-		canvas.getGraphicsContext2D().clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+		canvas.getGraphicsContext2D().setFill(Color.WHITE);
+		canvas.getGraphicsContext2D().fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 		canvas.getGraphicsContext2D().drawImage(image2, hBorder, vBorder);
 	}
 
 	public static void update(Canvas canvas) {
-		canvas.getGraphicsContext2D().clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+		canvas.getGraphicsContext2D().setFill(Color.WHITE);
+		canvas.getGraphicsContext2D().fillRect(0,0, canvas.getWidth(), canvas.getHeight());
 		canvas.getGraphicsContext2D().drawImage(image2, hBorder, vBorder);
 	}
 

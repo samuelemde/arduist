@@ -1,6 +1,7 @@
 package gui;
 
 import com.jfoenix.controls.JFXComboBox;
+import io.Writer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ import java.io.File;
 public class MainFXMLController {
 
 	private String method;
+	private File file;
 
 	@FXML
 	private VBox paramsDots;
@@ -33,6 +35,8 @@ public class MainFXMLController {
 	private Canvas imageCanvas;
 	@FXML
 	private JFXComboBox dropDownMenu;
+	@FXML
+	private JFXComboBox dropDownMenuLayout;
 	@FXML
 	private Canvas drawCanvas;
 	@FXML
@@ -109,9 +113,11 @@ public class MainFXMLController {
 
 	@FXML
 	public void initialize() {
-
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
 		dropDownMenu.setItems(items);
+		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
+		dropDownMenuLayout.setItems(itemsLayout);
+		dropDownMenuLayout.getSelectionModel().selectFirst();
 		sliderDotsGray.setValue(PathHandlerDots.getSlider());
 		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
 		sliderBlack.setValue(PathHandlerDots.getBlack());
@@ -136,9 +142,17 @@ public class MainFXMLController {
 	}
 
 	@FXML
-	public void LoadImage(ActionEvent event) {
+	public void loadImage(ActionEvent event) {
 		FileChooser fc = new FileChooser();
-		File file = fc.showOpenDialog(MainGUI.getStage());
+		file = fc.showOpenDialog(MainGUI.getStage());
+		if (file != null) {
+			ImageLoader.load(file, imageCanvas);
+			tabPane.getSelectionModel().select(0);
+			addDrawArea(imageCanvas);
+		}
+	}
+
+	public void reloadImage() {
 		if (file != null) {
 			ImageLoader.load(file, imageCanvas);
 			tabPane.getSelectionModel().select(0);
@@ -166,6 +180,36 @@ public class MainFXMLController {
 				paramsRandom.setVisible(true);
 				break;
 		}
+	}
+
+	@FXML
+	public void dropDownLayoutAction(ActionEvent event) {
+		String layout = dropDownMenuLayout.getValue().toString();
+		switch (layout) {
+			case "50x50":
+				changeCanvasSize(500, 500);
+				break;
+			case "A2":
+				changeCanvasSize(500, 420);
+				break;
+			case "A3":
+				changeCanvasSize(420, 296);
+				break;
+			case "A4":
+				changeCanvasSize(296, 210);
+				break;
+		}
+		Writer.setLayout(layout);
+	}
+
+	public void changeCanvasSize(int width, int height) {
+		imageCanvas.getGraphicsContext2D().clearRect(0, 0, imageCanvas.getWidth(), imageCanvas.getHeight());
+		drawCanvas.getGraphicsContext2D().clearRect(0, 0, drawCanvas.getWidth(), drawCanvas.getHeight());
+		imageCanvas.setWidth(width);
+		imageCanvas.setHeight(height);
+		drawCanvas.setWidth(width);
+		drawCanvas.setHeight(height);
+		reloadImage();
 	}
 
 	@FXML
@@ -208,21 +252,21 @@ public class MainFXMLController {
 	}
 
 	public void sliderBrushSizeAction(MouseEvent event) {
-		DrawArea.setBrushSize((int)sliderBrushSize.getValue());
+		DrawArea.setBrushSize((int) sliderBrushSize.getValue());
 	}
 
 	public void sliderBrushSizeLabelAction(MouseEvent event) {
-		labelBrushSize.setText(String.format("%d", (int)sliderBrushSize.getValue()));
-		DrawArea.setBrushSize((int)sliderBrushSize.getValue());
+		labelBrushSize.setText(String.format("%d", (int) sliderBrushSize.getValue()));
+		DrawArea.setBrushSize((int) sliderBrushSize.getValue());
 	}
 
 	public void sliderBrushOpacityAction(MouseEvent event) {
-		DrawArea.setOpacity((int)sliderBrushOpacity.getValue());
+		DrawArea.setOpacity((int) sliderBrushOpacity.getValue());
 	}
 
 	public void sliderBrushOpacityLabelAction(MouseEvent event) {
 		labelBrushOpacity.setText(String.format("%.2f", sliderBrushOpacity.getValue()));
-		DrawArea.setOpacity((int)sliderBrushOpacity.getValue());
+		DrawArea.setOpacity((int) sliderBrushOpacity.getValue());
 	}
 
 
@@ -230,14 +274,17 @@ public class MainFXMLController {
 		PathHandlerDots.setSlider(sliderDotsGray.getValue());
 
 	}
+
 	public void sliderGrayLabelAction(MouseEvent event) {
 		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
 		PathHandlerDots.setSlider(sliderDotsGray.getValue());
 	}
+
 	public void sliderBlackAction(MouseEvent event) {
 		PathHandlerDots.setBlack(sliderBlack.getValue());
 
 	}
+
 	public void sliderBlackLabelAction(MouseEvent event) {
 		blackLabel.setText(String.format("%.2f", sliderBlack.getValue()));
 		PathHandlerDots.setBlack(sliderBlack.getValue());
@@ -247,6 +294,7 @@ public class MainFXMLController {
 		PathHandlerLines.setNrOfShades((int) sliderLinesGray.getValue());
 
 	}
+
 	public void sliderGrayLinesLabelAction(MouseEvent event) {
 		grayLabelLines.setText(String.format("%.0f", sliderLinesGray.getValue()));
 		PathHandlerLines.setNrOfShades((int) sliderLinesGray.getValue());
@@ -256,53 +304,66 @@ public class MainFXMLController {
 		PathHandlerRandom.setNrOfShades((int) sliderLinesGray.getValue());
 
 	}
+
 	public void sliderGrayRandomLabelAction(MouseEvent event) {
 		grayLabelRandom.setText(String.format("%.0f", sliderRandomGray.getValue()));
 		PathHandlerRandom.setNrOfShades((int) sliderRandomGray.getValue());
 	}
+
 	public void sliderGridSizeAction(MouseEvent event) {
 		PathHandlerRandom.setGridSize((int) sliderGridSize.getValue());
 	}
+
 	public void sliderGridSizeLabelAction(MouseEvent event) {
 		gridSizeLabel.setText(String.format("%.0f", sliderGridSize.getValue()));
 		PathHandlerRandom.setGridSize((int) sliderGridSize.getValue());
 	}
+
 	public void sliderLinesPerGridAction(MouseEvent event) {
 		PathHandlerRandom.setLinesPerGridPoint((int) sliderLinesPerGrid.getValue());
 
 	}
+
 	public void sliderLinesPerGridLabelAction(MouseEvent event) {
 		linesPerGridLabel.setText(String.format("%.0f", sliderLinesPerGrid.getValue()));
 		PathHandlerRandom.setLinesPerGridPoint((int) sliderLinesPerGrid.getValue());
 	}
+
 	public void sliderRadiusOneAction(MouseEvent event) {
 		PathHandlerRandom.setRadiusShadeOne((int) sliderRadiusOne.getValue());
 
 	}
+
 	public void sliderRadiusOneLabelAction(MouseEvent event) {
 		radiusOneLabel.setText(String.format("%.0f", sliderRadiusOne.getValue()));
 		PathHandlerRandom.setRadiusShadeOne((int) sliderRadiusOne.getValue());
 	}
+
 	public void sliderRadiusTwoAction(MouseEvent event) {
 		PathHandlerRandom.setRadiusShadeTwo((int) sliderRadiusTwo.getValue());
 
 	}
+
 	public void sliderRadiusTwoLabelAction(MouseEvent event) {
 		radiusTwoLabel.setText(String.format("%.0f", sliderRadiusTwo.getValue()));
 		PathHandlerRandom.setRadiusShadeTwo((int) sliderRadiusTwo.getValue());
 	}
+
 	public void sliderRadiusThreeAction(MouseEvent event) {
 		PathHandlerRandom.setRadiusShadeThree((int) sliderRadiusThree.getValue());
 
 	}
+
 	public void sliderRadiusThreeLabelAction(MouseEvent event) {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		PathHandlerRandom.setRadiusShadeThree((int) sliderRadiusThree.getValue());
 	}
+
 	public void sliderRadiusFourAction(MouseEvent event) {
 		PathHandlerRandom.setRadiusShadeFour((int) sliderRadiusFour.getValue());
 
 	}
+
 	public void sliderRadiusFourLabelAction(MouseEvent event) {
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
 		PathHandlerRandom.setRadiusShadeFour((int) sliderRadiusFour.getValue());
