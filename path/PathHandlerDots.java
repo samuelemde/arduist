@@ -59,18 +59,8 @@ public class PathHandlerDots {
 	public static List<Position> calcPath() {
 		analyzeImage();
 		System.out.println("calculating path...");
-		int x = 0;
-		int y = 0;
-		findFirst:
-		while (y < height) {
-			while (x < width) {
-				if (points.get(x, y)) break findFirst;
-				x++;
-			}
-			y++;
-		}
 		path = new ArrayList<>();
-		Position p = new Position(x, y);
+		Position p = points.getFirst();
 		path.add(p);
 		while (points.getNrOfPointsLeft() > 0) {
 			p = nextPos(points, p.getX(), p.getY());
