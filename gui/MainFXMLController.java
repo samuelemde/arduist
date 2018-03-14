@@ -1,7 +1,6 @@
 package gui;
 
 import com.jfoenix.controls.JFXComboBox;
-import io.Writer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -144,6 +143,13 @@ public class MainFXMLController {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
+		sliderBrushSize.setValue(DrawArea.getBrushSize());
+		labelBrushSize.setText((String.format("%d", (int) sliderBrushSize.getValue())));
+		sliderBrushOpacity.setValue(DrawArea.getOpacity());
+		labelBrushOpacity.setText(String.format("%.2f", sliderBrushOpacity.getValue()));
+
+		dropDownMenu.getSelectionModel().selectFirst();
+		dropDownAction(new ActionEvent());
 
 		windowAnchor.widthProperty().addListener((observable, oldValue, newValue) -> changeWindowAnchorWidth());
 		windowAnchor.heightProperty().addListener((observable, oldValue, newValue) -> changeWindowAnchorHeight());
@@ -227,18 +233,21 @@ public class MainFXMLController {
 		switch (layout) {
 			case "50x50":
 				changeCanvasSize(500, 500);
+				Position.setLayout(0, 0);
 				break;
 			case "A2":
-				changeCanvasSize(500, 420);
+				changeCanvasSize(500, 418);
+				Position.setLayout(0, 41);
 				break;
 			case "A3":
-				changeCanvasSize(420, 296);
+				changeCanvasSize(418, 294);
+				Position.setLayout(41, 103);
 				break;
 			case "A4":
-				changeCanvasSize(296, 210);
+				changeCanvasSize(294, 208);
+				Position.setLayout(103, 146);
 				break;
 		}
-		Writer.setLayout(layout);
 	}
 
 	public void changeCanvasSize(int width, int height) {

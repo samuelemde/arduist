@@ -63,7 +63,15 @@ public class DrawArea {
 		brushSize = slider;
 	}
 
+	public static int getBrushSize() {
+		return brushSize;
+	}
+
 	public static void setOpacity(double slider) {
 		opacity = slider;
+	}
+
+	public static double getOpacity() {
+		return opacity;
 	}
 }
