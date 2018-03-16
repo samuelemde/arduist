@@ -32,10 +32,15 @@ public class Position {
 		return y;
 	}
 
-	public static void setLayout(int xOffset, int yOffset) {
+	public static void setFormat(int xOffset, int yOffset) {
 		Position.xOffset = xOffset;
 		Position.yOffset = yOffset;
 	}
+
+	public static int[] getOffsets() {
+		return new int[]{xOffset, yOffset};
+	}
+
 
 }
 

@@ -36,8 +36,6 @@ public class MainFXMLController {
 	@FXML
 	private JFXComboBox dropDownMenu;
 	@FXML
-	private JFXComboBox dropDownMenuLayout;
-	@FXML
 	private Canvas drawCanvas;
 	@FXML
 	private TabPane tabPane;
@@ -121,8 +119,6 @@ public class MainFXMLController {
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
 		dropDownMenu.setItems(items);
 		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
-		dropDownMenuLayout.setItems(itemsLayout);
-		dropDownMenuLayout.getSelectionModel().selectFirst();
 		sliderDotsGray.setValue(PathHandlerDots.getSlider());
 		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
 		sliderBlack.setValue(PathHandlerDots.getBlack());
@@ -228,27 +224,35 @@ public class MainFXMLController {
 	}
 
 	@FXML
-	public void dropDownLayoutAction(ActionEvent event) {
-		String layout = dropDownMenuLayout.getValue().toString();
-		switch (layout) {
-			case "50x50":
-				changeCanvasSize(500, 500);
-				Position.setLayout(0, 0);
-				break;
-			case "A2":
-				changeCanvasSize(500, 418);
-				Position.setLayout(0, 41);
-				break;
-			case "A3":
-				changeCanvasSize(418, 294);
-				Position.setLayout(41, 103);
-				break;
-			case "A4":
-				changeCanvasSize(294, 208);
-				Position.setLayout(103, 146);
-				break;
-		}
+	public void full(ActionEvent event) {
+		changeCanvasSize(500, 500);
+		Position.setFormat(0, 0);
 	}
+
+	@FXML
+	public void A2(ActionEvent event) {
+		changeCanvasSize(500, 418);
+		Position.setFormat(0, 41);
+	}
+
+	@FXML
+	public void A3(ActionEvent event) {
+		changeCanvasSize(418, 294);
+		Position.setFormat(41, 103);
+	}
+
+	@FXML
+	public void A4(ActionEvent event) {
+		changeCanvasSize(294, 208);
+		Position.setFormat(103, 146);
+	}
+
+	@FXML
+	public void flip(ActionEvent event) {
+		changeCanvasSize((int)imageCanvas.getHeight(), (int)imageCanvas.getWidth());
+		Position.setFormat(Position.getOffsets()[1], Position.getOffsets()[0]);
+	}
+
 
 	public void changeCanvasSize(int width, int height) {
 		imageCanvas.getGraphicsContext2D().clearRect(0, 0, imageCanvas.getWidth(), imageCanvas.getHeight());
