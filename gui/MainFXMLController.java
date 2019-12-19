@@ -1,15 +1,13 @@
 package gui;
 
 import com.jfoenix.controls.JFXComboBox;
+import io.Writer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -23,6 +21,8 @@ public class MainFXMLController {
 
 	private String method;
 	private File file;
+	public static boolean interleave = false;
+	public static String layout = "50x50";
 
 	@FXML
 	private VBox paramsDots;
@@ -35,6 +35,10 @@ public class MainFXMLController {
 	private Canvas imageCanvas;
 	@FXML
 	private JFXComboBox dropDownMenu;
+	@FXML
+	private JFXComboBox dropDownMenuLayout;
+	@FXML
+	private CheckBox interleaveCheckbox;
 	@FXML
 	private Canvas drawCanvas;
 	@FXML
@@ -119,6 +123,9 @@ public class MainFXMLController {
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
 		dropDownMenu.setItems(items);
 		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
+		dropDownMenuLayout.setItems(itemsLayout);
+		dropDownMenuLayout.getSelectionModel().selectFirst();
+		interleaveCheckbox.setSelected(false);
 		sliderDotsGray.setValue(PathHandlerDots.getSlider());
 		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
 		sliderBlack.setValue(PathHandlerDots.getBlack());
@@ -224,35 +231,62 @@ public class MainFXMLController {
 	}
 
 	@FXML
-	public void full(ActionEvent event) {
-		changeCanvasSize(500, 500);
-		Position.setFormat(0, 0);
+	public void dropDownLayoutAction(ActionEvent event) {
+		layout = dropDownMenuLayout.getValue().toString();
+		switch (layout) {
+			case "50x50":
+				changeCanvasSize(500, 500);
+				break;
+			case "A2":
+				changeCanvasSize(500, 420);
+				break;
+			case "A3":
+				changeCanvasSize(420, 296);
+				break;
+			case "A4":
+				changeCanvasSize(296, 210);
+				break;
+		}
 	}
+
 
 	@FXML
-	public void A2(ActionEvent event) {
-		changeCanvasSize(500, 418);
-		Position.setFormat(0, 41);
+	public void interleaveCheckboxAction(ActionEvent event){
+		layout = dropDownMenuLayout.getValue().toString();
+		if (interleaveCheckbox.isSelected()) {
+			interleave = true;
+			switch (layout) {
+				case "50x50":
+					changeCanvasSize(1000, 1000);
+					break;
+				case "A2":
+					changeCanvasSize(1000, 840);
+					break;
+				case "A3":
+					changeCanvasSize(840, 592);
+					break;
+				case "A4":
+					changeCanvasSize(592, 420);
+					break;
+			}
+		} else {
+			interleave = false;
+			switch (layout) {
+				case "50x50":
+					changeCanvasSize(500, 500);
+					break;
+				case "A2":
+					changeCanvasSize(500, 420);
+					break;
+				case "A3":
+					changeCanvasSize(420, 296);
+					break;
+				case "A4":
+					changeCanvasSize(296, 210);
+					break;
+			}
+		}
 	}
-
-	@FXML
-	public void A3(ActionEvent event) {
-		changeCanvasSize(418, 294);
-		Position.setFormat(41, 103);
-	}
-
-	@FXML
-	public void A4(ActionEvent event) {
-		changeCanvasSize(294, 208);
-		Position.setFormat(103, 146);
-	}
-
-	@FXML
-	public void flip(ActionEvent event) {
-		changeCanvasSize((int)imageCanvas.getHeight(), (int)imageCanvas.getWidth());
-		Position.setFormat(Position.getOffsets()[1], Position.getOffsets()[0]);
-	}
-
 
 	public void changeCanvasSize(int width, int height) {
 		imageCanvas.getGraphicsContext2D().clearRect(0, 0, imageCanvas.getWidth(), imageCanvas.getHeight());

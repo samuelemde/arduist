@@ -1,5 +1,6 @@
 package io;
 
+import gui.MainFXMLController;
 import path.ImageLoader;
 import path.Points;
 import path.Position;
@@ -15,10 +16,13 @@ import java.util.List;
  */
 public class Writer {
 
+	private static String layout;
+
 	public static void writeToFile(List<Position> points, String filename) {
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;
+		layout = MainFXMLController.layout;
 
 		try {
 			String content = buildString(points);
@@ -26,6 +30,20 @@ public class Writer {
 			fw = new FileWriter(filename);
 			bw = new BufferedWriter(fw);
 			bw.write(Points.size()+"\n");
+			switch (layout) {
+				case "50x50":
+					bw.write("100/100\n");
+					break;
+				case "A2":
+					bw.write("100/140\n");
+					break;
+				case "A3":
+					bw.write("140/202\n");
+					break;
+				case "A4":
+					bw.write("202/245\n");
+					break;
+			}
 			bw.write(content);
 
 		} catch (IOException e) {
@@ -50,5 +68,9 @@ public class Writer {
 			sb.append("\n");
 		}
 		return sb.toString();
+	}
+
+	public static void setLayout(String layout) {
+		Writer.layout = layout;
 	}
 }
