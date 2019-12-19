@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -24,6 +21,8 @@ public class MainFXMLController {
 
 	private String method;
 	private File file;
+	public static boolean interleave = false;
+	public static String layout = "50x50";
 
 	@FXML
 	private VBox paramsDots;
@@ -38,6 +37,8 @@ public class MainFXMLController {
 	private JFXComboBox dropDownMenu;
 	@FXML
 	private JFXComboBox dropDownMenuLayout;
+	@FXML
+	private CheckBox interleaveCheckbox;
 	@FXML
 	private Canvas drawCanvas;
 	@FXML
@@ -124,6 +125,7 @@ public class MainFXMLController {
 		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
 		dropDownMenuLayout.setItems(itemsLayout);
 		dropDownMenuLayout.getSelectionModel().selectFirst();
+		interleaveCheckbox.setSelected(false);
 		sliderDotsGray.setValue(PathHandlerDots.getSlider());
 		grayLabelDots.setText(String.format("%.2f", sliderDotsGray.getValue()));
 		sliderBlack.setValue(PathHandlerDots.getBlack());
@@ -223,7 +225,7 @@ public class MainFXMLController {
 
 	@FXML
 	public void dropDownLayoutAction(ActionEvent event) {
-		String layout = dropDownMenuLayout.getValue().toString();
+		layout = dropDownMenuLayout.getValue().toString();
 		switch (layout) {
 			case "50x50":
 				changeCanvasSize(500, 500);
@@ -239,6 +241,44 @@ public class MainFXMLController {
 				break;
 		}
 		Writer.setLayout(layout);
+	}
+
+	@FXML
+	public void interleaveCheckboxAction(ActionEvent event){
+		layout = dropDownMenuLayout.getValue().toString();
+		if (interleaveCheckbox.isSelected()) {
+			interleave = true;
+			switch (layout) {
+				case "50x50":
+					changeCanvasSize(1000, 1000);
+					break;
+				case "A2":
+					changeCanvasSize(1000, 840);
+					break;
+				case "A3":
+					changeCanvasSize(840, 592);
+					break;
+				case "A4":
+					changeCanvasSize(592, 420);
+					break;
+			}
+		} else {
+			interleave = false;
+			switch (layout) {
+				case "50x50":
+					changeCanvasSize(500, 500);
+					break;
+				case "A2":
+					changeCanvasSize(500, 420);
+					break;
+				case "A3":
+					changeCanvasSize(420, 296);
+					break;
+				case "A4":
+					changeCanvasSize(296, 210);
+					break;
+			}
+		}
 	}
 
 	public void changeCanvasSize(int width, int height) {

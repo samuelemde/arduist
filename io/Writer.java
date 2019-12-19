@@ -1,5 +1,6 @@
 package io;
 
+import gui.MainFXMLController;
 import path.ImageLoader;
 import path.Points;
 import path.Position;
@@ -21,6 +22,7 @@ public class Writer {
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;
+		layout = MainFXMLController.layout;
 
 		try {
 			String content = buildString(points);

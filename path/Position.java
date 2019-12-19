@@ -1,5 +1,7 @@
 package path;
 
+import gui.MainFXMLController;
+
 public class Position {
 	private int x;
 	private int y;
@@ -11,9 +13,11 @@ public class Position {
 
 	public String write() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.getX()+Math.round(ImageLoader.getHBorder()));
+		double factorInterleave = 1;
+		if (MainFXMLController.interleave) factorInterleave = 2;
+		sb.append(this.getX() / factorInterleave + Math.round(ImageLoader.getHBorder()));
 		sb.append("/");
-		sb.append(this.getY()+Math.round(ImageLoader.getVBorder()));
+		sb.append(this.getY() / factorInterleave + Math.round(ImageLoader.getVBorder()));
 		return sb.toString();
 	}
 
