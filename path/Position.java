@@ -3,6 +3,8 @@ package path;
 public class Position {
 	private int x;
 	private int y;
+	private static int xOffset;
+	private static int yOffset;
 
 	public Position(int x, int y) {
 		this.x = x;
@@ -11,9 +13,9 @@ public class Position {
 
 	public String write() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.getX());
+		sb.append(this.getX()+xOffset+Math.round(ImageLoader.getHBorder()));
 		sb.append("/");
-		sb.append(this.getY());
+		sb.append(this.getY()+yOffset+Math.round(ImageLoader.getVBorder()));
 		return sb.toString();
 	}
 
@@ -29,6 +31,16 @@ public class Position {
 	public int getY() {
 		return y;
 	}
+
+	public static void setFormat(int xOffset, int yOffset) {
+		Position.xOffset = xOffset;
+		Position.yOffset = yOffset;
+	}
+
+	public static int[] getOffsets() {
+		return new int[]{xOffset, yOffset};
+	}
+
 
 }
 
