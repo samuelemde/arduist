@@ -1,7 +1,6 @@
 package gui;
 
 import com.jfoenix.controls.JFXComboBox;
-import io.Writer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -146,6 +145,13 @@ public class MainFXMLController {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
+		sliderBrushSize.setValue(DrawArea.getBrushSize());
+		labelBrushSize.setText((String.format("%d", (int) sliderBrushSize.getValue())));
+		sliderBrushOpacity.setValue(DrawArea.getOpacity());
+		labelBrushOpacity.setText(String.format("%.2f", sliderBrushOpacity.getValue()));
+
+		dropDownMenu.getSelectionModel().selectFirst();
+		dropDownAction(new ActionEvent());
 
 		windowAnchor.widthProperty().addListener((observable, oldValue, newValue) -> changeWindowAnchorWidth());
 		windowAnchor.heightProperty().addListener((observable, oldValue, newValue) -> changeWindowAnchorHeight());
@@ -242,6 +248,37 @@ public class MainFXMLController {
 		}
 		Writer.setLayout(layout);
 	}
+
+	@FXML
+	public void full(ActionEvent event) {
+		changeCanvasSize(500, 500);
+		Position.setFormat(0, 0);
+	}
+
+	@FXML
+	public void A2(ActionEvent event) {
+		changeCanvasSize(500, 418);
+		Position.setFormat(0, 41);
+	}
+
+	@FXML
+	public void A3(ActionEvent event) {
+		changeCanvasSize(418, 294);
+		Position.setFormat(41, 103);
+	}
+
+	@FXML
+	public void A4(ActionEvent event) {
+		changeCanvasSize(294, 208);
+		Position.setFormat(103, 146);
+	}
+
+	@FXML
+	public void flip(ActionEvent event) {
+		changeCanvasSize((int)imageCanvas.getHeight(), (int)imageCanvas.getWidth());
+		Position.setFormat(Position.getOffsets()[1], Position.getOffsets()[0]);
+	}
+
 
 	@FXML
 	public void interleaveCheckboxAction(ActionEvent event){

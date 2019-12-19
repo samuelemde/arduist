@@ -42,4 +42,20 @@ public class Points {
 	public int getNrOfPointsLeft() {
 		return nrOfPointsLeft;
 	}
+
+	public Position getFirst() {
+		int x = 0;
+		int y = 0;
+		while (y < points[0].length) {
+			x = 0;
+			while (x < points.length) {
+				if (this.get(x, y)){
+					break;
+				}
+				x++;
+			}
+			y++;
+		}
+		return new Position(x,y);
+	}
 }
