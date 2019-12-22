@@ -23,7 +23,6 @@
                     <include>**/*.fxml</include>
                 </includes>
             </resource>
-            ...
         </resources>
     </build>
     <dependencies>
@@ -37,7 +36,6 @@
             <artifactId>webcam-capture</artifactId>
             <version>0.3.12</version>
         </dependency>
-
     </dependencies>
 
 
