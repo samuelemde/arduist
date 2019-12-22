@@ -36,7 +36,7 @@ public class Points {
 	}
 
 	public void setSize(int size){
-		this.size = size;
+		Points.size = size;
 	}
 
 	public int getNrOfPointsLeft() {

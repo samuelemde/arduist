@@ -27,7 +27,7 @@ public class PathHandlerLines {
 			points = new Points(width, height);
 			pixelCategory = new int[width][height];
 
-			double factor = 255 / nrOfShades;
+			double factor = 255. / nrOfShades;
 
 			for (int y = 0; y < height; y++) {
 				for (int x = 0; x < width; x++) {
