@@ -15,6 +15,7 @@ import javafx.stage.FileChooser;
 import path.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -31,6 +32,8 @@ public class MainFXMLController {
 	private VBox paramsLines;
 	@FXML
 	private VBox paramsRandom;
+	@FXML
+	private VBox paramsContour;
 
 	@FXML
 	private Canvas imageCanvas;
@@ -100,6 +103,11 @@ public class MainFXMLController {
 	@FXML
 	private Label radiusFourLabel;
 
+	@FXML
+	private Slider sliderContourGray;
+	@FXML
+	private Label grayLabelContour;
+
 
 	@FXML
 	private Label distance;
@@ -121,6 +129,8 @@ public class MainFXMLController {
 
 	@FXML
 	public void initialize() {
+
+		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random","Contour");
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
 		dropDownMenu.setItems(items);
 		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
@@ -147,6 +157,10 @@ public class MainFXMLController {
 		radiusThreeLabel.setText(String.format("%.0f", sliderRadiusThree.getValue()));
 		sliderRadiusFour.setValue(PathHandlerRandom.getRadiusShadeFour());
 		radiusFourLabel.setText(String.format("%.0f", sliderRadiusFour.getValue()));
+		sliderContourGray.setValue(PathHandlerContour.getPrecision());
+		grayLabelContour.setText(String.format("%.0f", sliderContourGray.getValue()));
+
+		sendCanvas();
 		sliderBrushSize.setValue(DrawArea.getBrushSize());
 		labelBrushSize.setText((String.format("%d", (int) sliderBrushSize.getValue())));
 		sliderBrushOpacity.setValue(DrawArea.getOpacity());
@@ -189,6 +203,12 @@ public class MainFXMLController {
 		drawCanvas.setTranslateY((drawCanvas.getHeight()*factor-drawCanvas.getHeight())/2);
 	}
 
+		private void sendCanvas() {
+			PathHandlerContour.setCanvas(imageCanvas);
+		}
+
+		@FXML
+	public void LoadImage(ActionEvent event) {
 	@FXML
 	public void loadImage(ActionEvent event) {
 		FileChooser fc = new FileChooser();
@@ -217,16 +237,25 @@ public class MainFXMLController {
 				paramsLines.setVisible(false);
 				paramsRandom.setVisible(false);
 				paramsDots.setVisible(true);
+				paramsContour.setVisible(false);
 				break;
 			case "Lines":
 				paramsDots.setVisible(false);
 				paramsRandom.setVisible(false);
 				paramsLines.setVisible(true);
+				paramsContour.setVisible(false);
 				break;
 			case "Random":
 				paramsDots.setVisible(false);
 				paramsLines.setVisible(false);
 				paramsRandom.setVisible(true);
+				paramsContour.setVisible(false);
+				break;
+			case "Contour":
+				paramsDots.setVisible(false);
+				paramsLines.setVisible(false);
+				paramsRandom.setVisible(false);
+				paramsContour.setVisible(true);
 				break;
 		}
 	}
@@ -318,8 +347,14 @@ public class MainFXMLController {
 				tabPane.getSelectionModel().select(1);
 				distance.setText(String.valueOf(DrawBot.getDistance()));
 				break;
+			case "Contour":
+				new DrawBot(drawCanvas, PathHandlerContour.calcPath()).draw();
+				tabPane.getSelectionModel().select(1);
+				distance.setText(String.valueOf(DrawBot.getDistance()));
+				break;
 		}
 	}
+
 	public void exportButtonAction(ActionEvent event) throws IOException {
 		File file = new File("temp.txt");
 		String path = file.getAbsolutePath();
@@ -334,6 +369,9 @@ public class MainFXMLController {
 			case "Random":
 				PathHandlerRandom.export(path);
 				break;
+            case "Contour":
+                PathHandlerContour.export(path);
+                break;
 		}
 		String[] args = new String[] {"scp", path, "pi@192.168.1.146:Arduist"};
  		Process proc = new ProcessBuilder(args).start();
@@ -478,6 +516,14 @@ public class MainFXMLController {
 
 	public void addDrawArea(Canvas canvas) {
 		DrawArea drawArea = new DrawArea(canvas);
+	}
+	public void sliderGrayContourAction(MouseEvent event) {
+		PathHandlerContour.setPrecision((int) sliderContourGray.getValue());
+
+	}
+	public void sliderGrayContourLabelAction(MouseEvent event) {
+		grayLabelContour.setText(String.format("%.0f", sliderContourGray.getValue()));
+		PathHandlerContour.setPrecision((int) sliderContourGray.getValue());
 	}
 
 }
