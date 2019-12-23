@@ -16,6 +16,7 @@ import path.*;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 
 public class MainFXMLController {
 
@@ -177,7 +178,7 @@ public class MainFXMLController {
 	}
 
 	private void scaleCanvases(){
-		double factor = tabPane.getWidth()/imageCanvas.getWidth() < tabPane.getHeight()/imageCanvas.getHeight() ? tabPane.getWidth()/imageCanvas.getWidth() : tabPane.getHeight()/imageCanvas.getHeight();
+		double factor = Math.min(tabPane.getWidth() / imageCanvas.getWidth(), tabPane.getHeight() / imageCanvas.getHeight());
 		imageCanvas.setScaleX(factor);
 		imageCanvas.setScaleY(factor);
 		imageCanvas.setTranslateX((imageCanvas.getWidth()*factor-imageCanvas.getWidth())/2);
@@ -319,24 +320,43 @@ public class MainFXMLController {
 				break;
 		}
 	}
-
-	public void exportButtonAction(ActionEvent event) {
-		FileChooser fc = new FileChooser();
-		File file = fc.showSaveDialog(MainGUI.getStage());
-		if (file != null) {
-			switch (method) {
-				case "Dots":
-					PathHandlerDots.export(file.getAbsolutePath() + ".txt");
-					break;
-				case "Lines":
-					PathHandlerLines.export(file.getAbsolutePath() + ".txt");
-					break;
-				case "Random":
-					PathHandlerRandom.export(file.getAbsolutePath() + ".txt");
-					break;
-			}
+	public void exportButtonAction(ActionEvent event) throws IOException {
+		File file = new File("temp.txt");
+		String path = file.getAbsolutePath();
+		System.out.println(path);
+		switch (method) {
+			case "Dots":
+				PathHandlerDots.export(path);
+				break;
+			case "Lines":
+				PathHandlerLines.export(path);
+				break;
+			case "Random":
+				PathHandlerRandom.export(path);
+				break;
 		}
+		String[] args = new String[] {"scp", path, "pi@192.168.1.146:Arduist"};
+ 		Process proc = new ProcessBuilder(args).start();
 	}
+
+//	public void exportButtonAction(ActionEvent event) {
+////		PathHandlerDots.getPath();
+//		FileChooser fc = new FileChooser();
+//		File file = fc.showSaveDialog(MainGUI.getStage());
+//		if (file != null) {
+//			switch (method) {
+//				case "Dots":
+//					PathHandlerDots.export(file.getAbsolutePath() + ".txt");
+//					break;
+//				case "Lines":
+//					PathHandlerLines.export(file.getAbsolutePath() + ".txt");
+//					break;
+//				case "Random":
+//					PathHandlerRandom.export(file.getAbsolutePath() + ".txt");
+//					break;
+//			}
+//		}
+//	}
 
 	public void sliderBrushSizeAction(MouseEvent event) {
 		DrawArea.setBrushSize((int) sliderBrushSize.getValue());

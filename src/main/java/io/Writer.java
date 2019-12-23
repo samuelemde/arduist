@@ -22,28 +22,13 @@ public class Writer {
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;
-		layout = MainFXMLController.layout;
+
+		String content = buildString(points);
 
 		try {
-			String content = buildString(points);
 
 			fw = new FileWriter(filename);
 			bw = new BufferedWriter(fw);
-			bw.write(Points.size()+"\n");
-			switch (layout) {
-				case "50x50":
-					bw.write("100/100\n");
-					break;
-				case "A2":
-					bw.write("100/140\n");
-					break;
-				case "A3":
-					bw.write("140/202\n");
-					break;
-				case "A4":
-					bw.write("202/245\n");
-					break;
-			}
 			bw.write(content);
 
 		} catch (IOException e) {
@@ -63,6 +48,23 @@ public class Writer {
 
 	private static String buildString(List<Position> points) {
 		StringBuilder sb = new StringBuilder();
+		layout = MainFXMLController.layout;
+		sb.append(Points.size());
+		sb.append("\n");
+		switch (layout) {
+			case "50x50":
+				sb.append("100/100\n");
+				break;
+			case "A2":
+				sb.append("100/140\n");
+				break;
+			case "A3":
+				sb.append("140/202\n");
+				break;
+			case "A4":
+				sb.append("202/245\n");
+				break;
+		}
 		for (Position p : points) {
 			sb.append(p.write());
 			sb.append("\n");
