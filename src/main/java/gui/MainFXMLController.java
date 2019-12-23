@@ -15,7 +15,7 @@ import javafx.stage.FileChooser;
 import path.*;
 
 import javax.swing.*;
-import java.awt.*;
+//import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -131,7 +131,6 @@ public class MainFXMLController {
 	public void initialize() {
 
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random","Contour");
-		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random");
 		dropDownMenu.setItems(items);
 		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
 		dropDownMenuLayout.setItems(itemsLayout);
@@ -203,12 +202,10 @@ public class MainFXMLController {
 		drawCanvas.setTranslateY((drawCanvas.getHeight()*factor-drawCanvas.getHeight())/2);
 	}
 
-		private void sendCanvas() {
-			PathHandlerContour.setCanvas(imageCanvas);
-		}
+	private void sendCanvas() {
+		PathHandlerContour.setCanvas(imageCanvas);
+	}
 
-		@FXML
-	public void LoadImage(ActionEvent event) {
 	@FXML
 	public void loadImage(ActionEvent event) {
 		FileChooser fc = new FileChooser();

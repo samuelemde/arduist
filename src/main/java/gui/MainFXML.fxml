@@ -103,94 +103,105 @@
                               </HBox>
                               <AnchorPane>
                                  <children>
-                                          <VBox fx:id="paramsRandom" alignment="CENTER" spacing="10.0" visible="false">
-                                              <children>
-                                                  <HBox alignment="CENTER">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" />
-                                                          <Label fx:id="grayLabelRandom" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderRandomGray" blockIncrement="1" majorTickUnit="1.0" max="4" min="1.0" minorTickCount="0" onMouseClicked="#sliderGrayRandomAction" onMouseDragged="#sliderGrayRandomLabelAction" onMouseReleased="#sliderGrayRandomAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Gridsize" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="gridSizeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderGridSize" blockIncrement="1" max="30" min="10.0" onMouseClicked="#sliderGridSizeAction" onMouseDragged="#sliderGridSizeLabelAction" onMouseReleased="#sliderGridSizeAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Lines per gridpoint" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="linesPerGridLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderLinesPerGrid" blockIncrement="1" max="4000" min="100.0" onMouseClicked="#sliderLinesPerGridAction" onMouseDragged="#sliderLinesPerGridLabelAction" onMouseReleased="#sliderLinesPerGridAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 1" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="radiusOneLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderRadiusOne" blockIncrement="1" max="5" min="2.0" onMouseClicked="#sliderRadiusOneAction" onMouseDragged="#sliderRadiusOneLabelAction" onMouseReleased="#sliderRadiusOneAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 2" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="radiusTwoLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderRadiusTwo" blockIncrement="1" max="20" min="10.0" onMouseClicked="#sliderRadiusTwoAction" onMouseDragged="#sliderRadiusTwoLabelAction" onMouseReleased="#sliderRadiusTwoAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 3" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="radiusThreeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderRadiusThree" blockIncrement="1" max="100" min="50.0" onMouseClicked="#sliderRadiusThreeAction" onMouseDragged="#sliderRadiusThreeLabelAction" onMouseReleased="#sliderRadiusThreeAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 4" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="radiusFourLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderRadiusFour" blockIncrement="1" max="200" min="100.0" onMouseClicked="#sliderRadiusFourAction" onMouseDragged="#sliderRadiusFourLabelAction" onMouseReleased="#sliderRadiusFourAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                              </children>
-                                          </VBox>
-                                          <VBox fx:id="paramsDots" alignment="CENTER" spacing="10.0" visible="false">
-                                              <children>
-                                                  <HBox alignment="CENTER">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" />
-                                                          <Label fx:id="grayLabelDots" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderDotsGray" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderGrayLabelAction" onMouseDragged="#sliderGrayLabelAction" onMouseReleased="#sliderGrayAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Black" wrappingWidth="96.218740940094" />
-                                                          <Label fx:id="blackLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderBlack" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderBlackLabelAction" onMouseDragged="#sliderBlackLabelAction" onMouseReleased="#sliderBlackAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                                  <HBox alignment="CENTER" spacing="50.0">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance" />
-                                                          <Label fx:id="distance" prefHeight="17.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                      </children>
-                                                  </HBox>
-                                              </children>
-                                          </VBox>
-                                          <VBox fx:id="paramsLines" alignment="CENTER" spacing="10.0" visible="false">
-                                              <children>
-                                                  <HBox alignment="CENTER">
-                                                      <children>
-                                                            <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" />
-                                                          <Label fx:id="grayLabelLines" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
-                                                          <Slider fx:id="sliderLinesGray" blockIncrement="1" max="10" onMouseClicked="#sliderGrayLinesLabelAction" onMouseDragged="#sliderGrayLinesLabelAction" onMouseReleased="#sliderGrayLinesAction" prefHeight="0.0" prefWidth="187.0" />
-                                                      </children>
-                                                  </HBox>
-                                              </children>
-                                          </VBox>
+                                      <VBox fx:id="paramsRandom" alignment="CENTER" spacing="10.0" visible="false">
+                                          <children>
+                                              <HBox alignment="CENTER">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" />
+                                                      <Label fx:id="grayLabelRandom" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderRandomGray" blockIncrement="1" majorTickUnit="1.0" max="4" min="1.0" minorTickCount="0" onMouseClicked="#sliderGrayRandomAction" onMouseDragged="#sliderGrayRandomLabelAction" onMouseReleased="#sliderGrayRandomAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Gridsize" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="gridSizeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderGridSize" blockIncrement="1" max="30" min="10.0" onMouseClicked="#sliderGridSizeAction" onMouseDragged="#sliderGridSizeLabelAction" onMouseReleased="#sliderGridSizeAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Lines per gridpoint" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="linesPerGridLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderLinesPerGrid" blockIncrement="1" max="4000" min="100.0" onMouseClicked="#sliderLinesPerGridAction" onMouseDragged="#sliderLinesPerGridLabelAction" onMouseReleased="#sliderLinesPerGridAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 1" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="radiusOneLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderRadiusOne" blockIncrement="1" max="5" min="2.0" onMouseClicked="#sliderRadiusOneAction" onMouseDragged="#sliderRadiusOneLabelAction" onMouseReleased="#sliderRadiusOneAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 2" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="radiusTwoLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderRadiusTwo" blockIncrement="1" max="20" min="10.0" onMouseClicked="#sliderRadiusTwoAction" onMouseDragged="#sliderRadiusTwoLabelAction" onMouseReleased="#sliderRadiusTwoAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 3" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="radiusThreeLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderRadiusThree" blockIncrement="1" max="100" min="50.0" onMouseClicked="#sliderRadiusThreeAction" onMouseDragged="#sliderRadiusThreeLabelAction" onMouseReleased="#sliderRadiusThreeAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Radius 4" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="radiusFourLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderRadiusFour" blockIncrement="1" max="200" min="100.0" onMouseClicked="#sliderRadiusFourAction" onMouseDragged="#sliderRadiusFourLabelAction" onMouseReleased="#sliderRadiusFourAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                          </children>
+                                      </VBox>
+                                      <VBox fx:id="paramsDots" alignment="CENTER" spacing="10.0" visible="false">
+                                          <children>
+                                              <HBox alignment="CENTER">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" />
+                                                      <Label fx:id="grayLabelDots" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderDotsGray" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderGrayLabelAction" onMouseDragged="#sliderGrayLabelAction" onMouseReleased="#sliderGrayAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Black" wrappingWidth="96.218740940094" />
+                                                      <Label fx:id="blackLabel" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderBlack" blockIncrement="0.1" max="1.0" onMouseClicked="#sliderBlackLabelAction" onMouseDragged="#sliderBlackLabelAction" onMouseReleased="#sliderBlackAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                              <HBox alignment="CENTER" spacing="50.0">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance" />
+                                                      <Label fx:id="distance" prefHeight="17.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                  </children>
+                                              </HBox>
+                                          </children>
+                                      </VBox>
+                                      <VBox fx:id="paramsLines" alignment="CENTER" spacing="10.0" visible="false">
+                                          <children>
+                                              <HBox alignment="CENTER">
+                                                  <children>
+                                                        <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" />
+                                                      <Label fx:id="grayLabelLines" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                      <Slider fx:id="sliderLinesGray" blockIncrement="1" max="10" onMouseClicked="#sliderGrayLinesLabelAction" onMouseDragged="#sliderGrayLinesLabelAction" onMouseReleased="#sliderGrayLinesAction" prefHeight="0.0" prefWidth="187.0" />
+                                                  </children>
+                                              </HBox>
+                                          </children>
+                                      </VBox>
+                                     <VBox fx:id="paramsContour" alignment="CENTER" spacing="10.0" visible="false">
+                                         <children>
+                                             <HBox alignment="CENTER">
+                                                 <children>
+                                                     <Text fill="#4d4d4d" layoutX="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grayscale" wrappingWidth="96.21875" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="0.0" />
+                                                     <Label fx:id="grayLabelContour" prefHeight="0.0" prefWidth="54.0" textFill="#4d4d4d" />
+                                                     <Slider fx:id="sliderContourGray" blockIncrement="1" max="255" onMouseClicked="#sliderGrayContourLabelAction" onMouseDragged="#sliderGrayContourLabelAction" onMouseReleased="#sliderGrayContourAction" prefHeight="0.0" prefWidth="187.0" />
+                                                 </children>
+                                             </HBox>
+                                         </children>
+                                     </VBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets left="30.0" top="50.0" />

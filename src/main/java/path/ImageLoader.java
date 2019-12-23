@@ -32,13 +32,19 @@ public class ImageLoader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		load(image, canvas);
+	}
+
+	public static void load(javafx.scene.image.Image image, Canvas canvas) {
+		width = (int)canvas.getWidth();
+		height = (int)canvas.getHeight();
 		reader = image.getPixelReader();
 		image2 = new WritableImage((int)image.getWidth(), (int)image.getHeight());
 		writer = image2.getPixelWriter();
 		for (int x = 0; x < image.getWidth(); x++) {
 			for (int y = 0; y < image.getHeight(); y++) {
-            	int argb = reader.getArgb(x, y);
-            	writer.setArgb(x, y, argb);
+				int argb = reader.getArgb(x, y);
+				writer.setArgb(x, y, argb);
 			}
 		}
 		hBorder = (width - image.getWidth())/2;
