@@ -1,7 +1,6 @@
 package gui;
 
 import com.jfoenix.controls.JFXComboBox;
-import io.Writer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -129,7 +128,6 @@ public class MainFXMLController {
 
 	@FXML
 	public void initialize() {
-
 		ObservableList<String> items = FXCollections.observableArrayList("Dots", "Lines", "Random","Contour");
 		dropDownMenu.setItems(items);
 		ObservableList<String> itemsLayout = FXCollections.observableArrayList("50x50", "A2", "A3", "A4");
@@ -257,28 +255,9 @@ public class MainFXMLController {
 		}
 	}
 
-	@FXML
-	public void dropDownLayoutAction(ActionEvent event) {
-		layout = dropDownMenuLayout.getValue().toString();
-		switch (layout) {
-			case "50x50":
-				changeCanvasSize(500, 500);
-				break;
-			case "A2":
-				changeCanvasSize(500, 420);
-				break;
-			case "A3":
-				changeCanvasSize(420, 296);
-				break;
-			case "A4":
-				changeCanvasSize(296, 210);
-				break;
-		}
-	}
-
 
 	@FXML
-	public void interleaveCheckboxAction(ActionEvent event){
+	public void changeLayoutAction(ActionEvent event){
 		layout = dropDownMenuLayout.getValue().toString();
 		if (interleaveCheckbox.isSelected()) {
 			interleave = true;
@@ -313,6 +292,12 @@ public class MainFXMLController {
 					break;
 			}
 		}
+		refreshCanvasScaling();
+	}
+
+	private void refreshCanvasScaling() {
+		changeWindowAnchorHeight();
+		changeWindowAnchorWidth();
 	}
 
 	public void changeCanvasSize(int width, int height) {

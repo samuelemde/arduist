@@ -58,7 +58,7 @@
                         <HBox>
                            <children>
                               <JFXTextField alignment="CENTER" editable="false" focusColor="#4d4d4d" prefHeight="33.0" prefWidth="198.0" promptText="Choose Layout" />
-                              <JFXComboBox fx:id="dropDownMenuLayout" focusColor="#4d4d4d" onAction="#dropDownLayoutAction" prefHeight="33.0" prefWidth="202.0" />
+                              <JFXComboBox fx:id="dropDownMenuLayout" focusColor="#4d4d4d" onAction="#changeLayoutAction" prefHeight="33.0" prefWidth="202.0" />
                            </children>
                         </HBox>
                               <HBox>
@@ -67,7 +67,7 @@
                                         <JFXComboBox fx:id="dropDownMenu" focusColor="#4d4d4d" onAction="#dropDownAction" prefHeight="33.0" prefWidth="202.0" />
                                   </children>
                               </HBox>
-                        <CheckBox fx:id="interleaveCheckbox" mnemonicParsing="false" onAction="#interleaveCheckboxAction" text="Interleave">
+                        <CheckBox fx:id="interleaveCheckbox" mnemonicParsing="false" onAction="#changeLayoutAction" text="Interleave">
                            <VBox.margin>
                               <Insets left="270.0" top="20.0" />
                            </VBox.margin>
