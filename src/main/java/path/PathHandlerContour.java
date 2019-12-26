@@ -24,10 +24,11 @@ public class PathHandlerContour {
 	private static int[][] darkArea;
 	private static int darkValue = 122;
 	private static Canvas canvas;
-	private static int blur = 6;
+	private static int blur = 5;
 
 	private static void analyzeImage() {
-		Image image = ImageLoader.getImage();
+		Image image = ImageLoader.getImageCopy();
+
 		width = (int) image.getWidth();
 		height = (int) image.getHeight();
 		int radius = blur;
@@ -45,7 +46,7 @@ public class PathHandlerContour {
 		bImg = op.filter(bImg, null);
 		image = SwingFXUtils.toFXImage(bImg, null);
 
-		refreshImage(image);
+//		refreshImage(image);
 
 		points = new Points(width, height);
 		points.setSize(0);

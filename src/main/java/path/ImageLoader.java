@@ -81,4 +81,20 @@ public class ImageLoader {
 	public static PixelWriter getWriter() { return writer; }
 
 	public static PixelReader getReader() { return reader; }
+
+	public static WritableImage getImageCopy() {
+		int height=(int)image.getHeight();
+		int width=(int)image.getWidth();
+		PixelReader pixelReader=image.getPixelReader();
+		WritableImage writableImage = new WritableImage(width,height);
+		PixelWriter pixelWriter = writableImage.getPixelWriter();
+
+		for (int y = 0; y < height; y++){
+			for (int x = 0; x < width; x++){
+				Color color = pixelReader.getColor(x, y);
+				pixelWriter.setColor(x, y, color);
+			}
+		}
+		return writableImage;
+	}
 }
