@@ -1,4 +1,4 @@
-package gui;
+package main.gui;
 
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
@@ -7,7 +7,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import path.ImageLoader;
+import main.path.ImageLoader;
 
 public class DrawArea {
 	private static int brushSize = 30;

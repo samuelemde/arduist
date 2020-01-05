@@ -1,4 +1,4 @@
-package path;
+package main.path;
 
 public class PathType {
 

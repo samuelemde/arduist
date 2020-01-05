@@ -1,11 +1,11 @@
-package path;
+package main.path;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import java.util.List;
 
 /**
- * This class actually draws the path to the canvas.
+ * This class actually draws the main.path to the canvas.
  */
 public class DrawBot {
 	private Canvas canvas;

@@ -1,6 +1,6 @@
-package path;
+package main.path;
 
-import gui.MainGUI;
+import main.gui.MainGUI;
 import javafx.application.Application;
 
 /**

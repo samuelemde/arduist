@@ -1,6 +1,6 @@
-package io;
+package main.io;
 
-import path.Position;
+import main.path.Position;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

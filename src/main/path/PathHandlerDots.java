@@ -1,6 +1,6 @@
-package path;
+package main.path;
 
-import io.Writer;
+import main.io.Writer;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class is responsible of calculating a path, which connects all the points from the path.Points object.
+ * This class is responsible of calculating a main.path, which connects all the points from the main.path.Points object.
  */
 public class PathHandlerDots {
 	private static int width;
@@ -53,12 +53,12 @@ public class PathHandlerDots {
 	}
 
 	/**
-	 * Calculates a path, which connects all the points from the path.Points object.
-	 * @return Returns a List of path.Position in a specific order (path).
+	 * Calculates a main.path, which connects all the points from the main.path.Points object.
+	 * @return Returns a List of main.path.Position in a specific order (main.path).
 	 */
 	public static List<Position> calcPath() {
 		analyzeImage();
-		System.out.println("calculating path...");
+		System.out.println("calculating main.path...");
 		int x = 0;
 		int y = 0;
 		findFirst:
@@ -84,12 +84,12 @@ public class PathHandlerDots {
 	}
 
 	/**
-	 * Returns a next valid path.Position to add to the path, by checking for every point in a increasing rectangle if the
-	 * point is part of the path.Points object, which contains all points calculated by the path.ImageLoader.
-	 * @param points The path.Points object containing all points calculated by the path.ImageLoader.
+	 * Returns a next valid main.path.Position to add to the main.path, by checking for every point in a increasing rectangle if the
+	 * point is part of the main.path.Points object, which contains all points calculated by the main.path.ImageLoader.
+	 * @param points The main.path.Points object containing all points calculated by the main.path.ImageLoader.
 	 * @param xPos The x coordinate of the previous point.
 	 * @param yPos The y coordinate of the previous point.
-	 * @return One valid next path.Position, which is part of the
+	 * @return One valid next main.path.Position, which is part of the
 	 */
 	private static Position nextPos(Points points, int xPos, int yPos) {
 		int r = 2;
@@ -101,8 +101,8 @@ public class PathHandlerDots {
 
 	/**
 	 * Returns a List of possible next Positions, by calculating a rect around the point with coordinates xPos, yPos
-	 * and checking, whether the point is part of the path.Points object.
-	 * @param points The path.Points object containing all points calculated by the path.ImageLoader.
+	 * and checking, whether the point is part of the main.path.Points object.
+	 * @param points The main.path.Points object containing all points calculated by the main.path.ImageLoader.
 	 * @param xPos The x coordinate of the previous point.
 	 * @param yPos The y coordinate of the previous point.
 	 * @param r The parameter defining the edge length of the calculated rectangle (= 2r + 1).

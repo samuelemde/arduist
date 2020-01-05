@@ -1,4 +1,4 @@
-package path;
+package main.path;
 
 public class Position {
 	private int x;

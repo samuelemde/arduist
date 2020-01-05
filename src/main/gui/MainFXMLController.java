@@ -1,4 +1,4 @@
-package gui;
+package main.gui;
 
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import path.*;
+import main.path.*;
 
 import javax.swing.*;
 import java.io.File;

@@ -1,8 +1,7 @@
-package io;
+package main.io;
 
-import path.ImageLoader;
-import path.Points;
-import path.Position;
+import main.path.Points;
+import main.path.Position;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.util.List;
 
 /**
  * This class creates a file and writes all points separated by a new line character to a txt file.
- * These points are then read by the io.Reader class and used by the path.DrawBot class to draw the image.
+ * These points are then read by the main.io.Reader class and used by the main.path.DrawBot class to draw the image.
  * The first line represents the total amount of points.
  */
 public class Writer {

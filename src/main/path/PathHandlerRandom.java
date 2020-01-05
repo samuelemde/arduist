@@ -1,6 +1,6 @@
-package path;
+package main.path;
 
-import io.Writer;
+import main.io.Writer;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
@@ -53,7 +53,7 @@ public class PathHandlerRandom {
 
 	public static List<Position> calcPath() {
 		analyzeImage();
-		System.out.println("calculating path...");
+		System.out.println("calculating main.path...");
 		x = 0;
 		y = 0;
 		path = new ArrayList<>();

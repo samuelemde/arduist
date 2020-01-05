@@ -1,4 +1,4 @@
-package path;
+package main.path;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
@@ -9,8 +9,8 @@ import javafx.scene.image.WritableImage;
 import java.io.File;
 
 /**
- * This class loads, resizes and analyzes an image and creates a path.Points object, containing all the points, which then are
- * used to calculate a path by the path.PathHandlerDots.
+ * This class loads, resizes and analyzes an image and creates a main.path.Points object, containing all the points, which then are
+ * used to calculate a main.path by the main.path.PathHandlerDots.
  */
 public class ImageLoader {
 	private static Image image;
