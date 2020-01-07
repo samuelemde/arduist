@@ -53,7 +53,7 @@ public class Writer {
 		sb.append("\n");
 		switch (layout) {
 			case "50x50":
-				sb.append("100/100\n");
+				sb.append("100/180\n");
 				break;
 			case "A2":
 				sb.append("100/140\n");

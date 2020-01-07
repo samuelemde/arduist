@@ -14,7 +14,7 @@ public class Position {
 	public String write() {
 		StringBuilder sb = new StringBuilder();
 		double factorInterleave = 1;
-		if (MainFXMLController.interleave) factorInterleave = 2;
+//		if (MainFXMLController.interleave) factorInterleave = 2;
 		sb.append(this.getX() / factorInterleave + Math.round(ImageLoader.getHBorder()));
 		sb.append("/");
 		sb.append(this.getY() / factorInterleave + Math.round(ImageLoader.getVBorder()));
