@@ -355,8 +355,9 @@ public class MainFXMLController {
                 PathHandlerContour.export(path);
                 break;
 		}
-		String[] args = new String[] {"scp", path, "pi@192.168.1.146:Arduist"};
+		String[] args = new String[] {"scp", path, "pi@raspberrypi.local:~/Arduist"};
  		Process proc = new ProcessBuilder(args).start();
+		System.out.println("Secure Copy");
 	}
 
 //	public void exportButtonAction(ActionEvent event) {
